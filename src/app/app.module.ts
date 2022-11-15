@@ -6,10 +6,12 @@ import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material/material.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from "@angular/material/table";
+import { CdkTableModule } from "@angular/cdk/table";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MaterialModule,
     PagesModule,
+    MatTableModule,
+    CdkTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,31 @@
+<h2>Profile</h2>
+
+<table id="table1">
+  <tr>
+    <th>Name:</th>
+    <td><input type="text" [(ngModel)]="user.name"/></td>
+  </tr>
+
+  <tr>
+    <th>Surname:</th>
+    <td><input type="text" [(ngModel)]="user.surname"/></td>
+  </tr>
+  
+  <tr>
+    <th>Password</th>
+    <td><input type="text" [(ngModel)]="user.password"/></td>
+  </tr>
+
+  <tr>
+    <th>PhoneNumber</th>
+    <td><input type="text" [(ngModel)]="user.phoneNum"/></td>
+  </tr>
+
+  <tr>
+    <th>Save</th>
+    <td><button type="submit" (click)="saveUser()">Save</button></td>
+  </tr>
+
+</table>
+  
+  

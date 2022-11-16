@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get<any>(this.apiHost + "users/" + email, { headers : this.headers});
   }
 
-  saveUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'users/saveChanges' , {headers: this.headers});
+  save(user: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'users/saveChanges' , user , { headers : this.headers });          
   }
 }

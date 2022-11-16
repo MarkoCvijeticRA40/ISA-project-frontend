@@ -14,13 +14,13 @@ export class EditProfileComponent implements OnInit {
   public user: RegisteredUser = new RegisteredUser();
   
   public saveUser(){
-    this.userService.saveUser(this.user).subscribe(res => {
-      alert("You have registered successfully!");
+      this.userService.save(this.user).subscribe(res => {
+        alert("You have changed successfully!");
     })
   }
   
   ngOnInit(): void {
-    this.userService.find("svarga@gmail.com").subscribe(res => {
+    this.userService.find("marko@gmail.com").subscribe(res => {
       this.user = res;
     })
   }

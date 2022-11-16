@@ -14,7 +14,6 @@ export class ShowProfileComponent implements OnInit {
   
   constructor(private userService: UserService) { }
 
-
   ngOnInit(): void {
     this.userService.find("svarga@gmail.com").subscribe(res => {
       this.user = res;

@@ -32,9 +32,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,
-    MatSelectModule,
+    MatSelectModule,   
     AppRoutingModule
-    
+
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

@@ -11,6 +11,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
 
 /*const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     RegisterUserComponent,
     ShowProfileComponent,
     EditProfileComponent,
+    ShowAdministratorProfileComponent,
   ],
   imports: [
     CommonModule,

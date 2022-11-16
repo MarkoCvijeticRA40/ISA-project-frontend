@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { UserService } from 'src/app/service/user.service';
 
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router: Router) { }
 
   public user: RegisteredUser = new RegisteredUser();
   
@@ -18,6 +19,7 @@ export class EditProfileComponent implements OnInit {
     if (this.isInputValid()) {  
     this.userService.save(this.user).subscribe(res => {
         alert("You have changed successfully!");
+          this.router.navigate(['/profile']);
     })
   }
   else{

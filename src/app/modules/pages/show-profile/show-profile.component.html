@@ -3,7 +3,7 @@
 <table id="table1">
   <tr>
     <th>Id:</th>
-    <td><{{user.identityNumber}}</td>
+    <td>{{user.identityNumber}}</td>
   </tr>
   
   <tr>
@@ -30,15 +30,26 @@
     <th>PhoneNumber</th>
     <td>{{user.phoneNum}}</td>
   </tr>
-
+  
   <tr>
-    <th>Address</th>
+    <th>Street</th>
     <td>{{user.address.street}}</td>
   </tr>
 
   <tr>
-    <th>street</th>
+    <th>Number</th>
     <td>{{user.address.number}}</td>
+  </tr>
+  
+  <tr>
+    <th>State</th>
+    <td>{{user.address.state}}</td>
+  </tr>
+
+
+  <tr>
+    <th>City</th>
+    <td>{{user.address.city}}</td>
   </tr>
 
   <tr>

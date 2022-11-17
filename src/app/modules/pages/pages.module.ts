@@ -12,6 +12,10 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
+import { ShowProfileComponent } from './show-profile/show-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
+import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
 
 
 const routes: Routes = [
@@ -26,7 +30,11 @@ const routes: Routes = [
     HomeComponent,
     RegisterUserComponent,
     RegisteredUsersComponent,
-    RegisterCenterComponent
+    RegisterCenterComponent,
+    ShowProfileComponent,
+    EditProfileComponent,
+    ShowAdministratorProfileComponent,
+    EditAdministratorProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -36,8 +44,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,
-    MatSelectModule
-    
+    MatSelectModule,   
+    AppRoutingModule
+
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

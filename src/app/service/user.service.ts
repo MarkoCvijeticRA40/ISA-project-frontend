@@ -14,7 +14,24 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'users/registerUser', user, {headers: this.headers});
+    return this.http.post<any>(this.apiHost + 'users/registeredUser', user, {headers: this.headers});
+  }
+
+  find(email: string): Observable<any>{
+    return this.http.get<any>(this.apiHost + "registeredusers/" + email, { headers : this.headers});
+  }
+
+  findAdministrator(email: string): Observable<any>{
+    return this.http.get<any>(this.apiHost + "medicalstaff/" + email, { headers : this.headers});
+  }
+
+  save(user: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
+  }
+
+  //koliko sam shvatio iz specifikacije administrator centra spada u medical staff,ima odradjeno i za system adminsitratora ako je to mozda
+  saveAdministrator(user: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , user , { headers : this.headers });          
   }
 
   searchRegisteredUsersByNameAndSurname(name:string,surname:string): Observable<RegisteredUser[]> {

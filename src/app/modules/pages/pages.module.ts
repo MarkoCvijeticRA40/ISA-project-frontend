@@ -11,6 +11,7 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from "@angular/router";
+import { RegisterCenterComponent } from './register-center/register-center.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     RegisterUserComponent,
-    RegisteredUsersComponent
+    RegisteredUsersComponent,
+    RegisterCenterComponent
   ],
   imports: [
     CommonModule,

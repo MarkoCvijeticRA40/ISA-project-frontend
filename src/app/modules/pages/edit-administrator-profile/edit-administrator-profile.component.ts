@@ -17,9 +17,9 @@ export class EditAdministratorProfileComponent implements OnInit {
   
   public saveUser(){
     if (this.isInputValid()) {  
-    this.userService.save(this.user).subscribe(res => {
+    this.userService.saveAdministrator(this.user).subscribe(res => {
         alert("You have changed successfully!");
-          this.router.navigate(['/editadminprofile']);
+          this.router.navigate(['/adminprofile']);
     })
   }
   else{
@@ -28,7 +28,7 @@ export class EditAdministratorProfileComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.userService.find("dejan@gmail.com").subscribe(res => {
+    this.userService.findAdministrator("dejan@gmail.com").subscribe(res => {
       this.user = res;
     })
   }

@@ -27,4 +27,8 @@ export class UserService {
   save(user: any): Observable<any>{
     return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
   }
+
+  saveAdministrator(user: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'administrators/saveChanges' , user , { headers : this.headers });          
+  }
 }

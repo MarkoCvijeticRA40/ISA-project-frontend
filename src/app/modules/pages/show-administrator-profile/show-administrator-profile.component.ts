@@ -19,7 +19,7 @@ export class ShowAdministratorProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.findAdministrator("dejan@gmail.com").subscribe(res => {
+    this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
       this.user = res;
     })
   }

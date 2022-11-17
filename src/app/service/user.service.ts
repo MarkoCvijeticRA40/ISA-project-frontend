@@ -21,14 +21,15 @@ export class UserService {
   }
 
   findAdministrator(email: string): Observable<any>{
-    return this.http.get<any>(this.apiHost + "administrators/" + email, { headers : this.headers});
+    return this.http.get<any>(this.apiHost + "medicalstaff/" + email, { headers : this.headers});
   }
 
   save(user: any): Observable<any>{
     return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
   }
 
+  //koliko sam shvatio iz specifikacije administrator centra spada u medical staff,ima odradjeno i za system adminsitratora ako je to mozda
   saveAdministrator(user: any): Observable<any>{
-    return this.http.put<any>(this.apiHost + 'administrators/saveChanges' , user , { headers : this.headers });          
+    return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , user , { headers : this.headers });          
   }
 }

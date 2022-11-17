@@ -17,8 +17,21 @@ export class UserService {
     return this.http.post<any>(this.apiHost + 'users/registerUser', user, {headers: this.headers});
   }
 
+  searchRegisteredUsersByNameAndSurname(name:string,surname:string): Observable<RegisteredUser[]> {
+    return this.http.get<RegisteredUser[]>(this.apiHost + 'users/search/'+ name + '/' + surname, {headers: this.headers});
+  }
+
+  searchRegisteredUsersByName(name:string): Observable<RegisteredUser[]> {
+    return this.http.get<RegisteredUser[]>(this.apiHost + 'users/searchName/'+ name , {headers: this.headers});
+  }
+
+  searchRegisteredUsersBySurname(surname:string): Observable<RegisteredUser[]> {
+    return this.http.get<RegisteredUser[]>(this.apiHost + 'users/searchSurname/' + surname, {headers: this.headers});
+  }
 
   
+  
+
   getRegisteredUsers(): Observable<RegisteredUser[]> {
     return this.http.get<RegisteredUser[]>(this.apiHost + 'users/registeredUsers', {headers: this.headers});
   }

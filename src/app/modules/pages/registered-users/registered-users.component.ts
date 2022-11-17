@@ -10,6 +10,8 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class RegisteredUsersComponent implements OnInit {
 
+  public searchByName: string = '';
+  public searchBySurname: string = '';
   public dataSource = new MatTableDataSource<RegisteredUser>();
   public displayedColumns = ['name', 'surname','email','phoneNum'];
   public registeredUsers: RegisteredUser[] = []
@@ -21,6 +23,33 @@ export class RegisteredUsersComponent implements OnInit {
       this.registeredUsers = res;
       this.dataSource.data = this.registeredUsers
     })
+  }
+
+  public searchRegisteredUsers(event: any) {
+    
+    if(this.searchByName!=''&& this.searchBySurname!=''){
+    this.userService.searchRegisteredUsersByNameAndSurname(this.searchByName,this.searchBySurname).subscribe(res =>{
+      this.registeredUsers = res;
+      this.dataSource.data = this.registeredUsers
+    })
+    }else if(this.searchByName!=''&& this.searchBySurname==''){
+      this.userService.searchRegisteredUsersByName(this.searchByName).subscribe(res =>{
+        this.registeredUsers = res;
+        this.dataSource.data = this.registeredUsers
+      })
+    }else if(this.searchByName==''&& this.searchBySurname!=''){
+      this.userService.searchRegisteredUsersBySurname(this.searchBySurname).subscribe(res =>{
+        this.registeredUsers = res;
+        this.dataSource.data = this.registeredUsers
+      })
+    }else{
+      this.userService.getRegisteredUsers().subscribe(res =>{
+        this.registeredUsers = res;
+        this.dataSource.data = this.registeredUsers
+      })
+
+    }
+    
   }
 
 }

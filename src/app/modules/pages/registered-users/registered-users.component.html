@@ -1,3 +1,16 @@
+
+<div class="filter-search">
+  <div class="search">
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Search by name</mat-label>
+        <input matInput type="text" [(ngModel)]="searchByName" (keyup)="searchRegisteredUsers($event)">
+    </mat-form-field><br/>
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Search by surname</mat-label>
+      <input matInput type="text"  [(ngModel)]="searchBySurname" (keyup)="searchRegisteredUsers($event)">
+    </mat-form-field><br>
+  </div>
+</div>
 <div class="container">
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="name">

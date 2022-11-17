@@ -1,3 +1,4 @@
+import { Address } from "./address.model";
 import { WorkTime } from "./work-time.model";
 
 export class Center {
@@ -5,7 +6,7 @@ export class Center {
     name: string = '';
     description: string = '';
     avgGrade: number = 0;
-    address: any = null;
+    address: Address = new Address();
     workTime: WorkTime = new WorkTime();
     blood: any[] = [];
     equipments: any[] = [];

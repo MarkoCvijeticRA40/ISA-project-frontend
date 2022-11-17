@@ -17,10 +17,14 @@ export class UserService {
   }
 
   find(email: string): Observable<any>{
-    return this.http.get<any>(this.apiHost + "users/" + email, { headers : this.headers});
+    return this.http.get<any>(this.apiHost + "registeredusers/" + email, { headers : this.headers});
+  }
+
+  findAdministrator(email: string): Observable<any>{
+    return this.http.get<any>(this.apiHost + "administrators/" + email, { headers : this.headers});
   }
 
   save(user: any): Observable<any>{
-    return this.http.put<any>(this.apiHost + 'users/saveChanges' , user , { headers : this.headers });          
+    return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
   }
 }

@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
+import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
 
 /*const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ import { ShowAdministratorProfileComponent } from './show-administrator-profile/
     ShowProfileComponent,
     EditProfileComponent,
     ShowAdministratorProfileComponent,
+    EditAdministratorProfileComponent,
   ],
   imports: [
     CommonModule,

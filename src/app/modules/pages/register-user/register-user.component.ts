@@ -31,6 +31,8 @@ export class RegisterUserComponent implements OnInit {
 
   public confirmationPass: string = '';
 
+  isGenderSelected: boolean = false;
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -108,11 +110,15 @@ export class RegisterUserComponent implements OnInit {
          && this.user.address.city != '' && this.user.address.state != '' 
          && this.user.address.street != '' && this.user.phoneNum != '' 
          && this.user.identityNumber.length === 13 && this.user.profession != ''
-         && this.confirmationPass != '';
+         && this.confirmationPass != '' && this.isGenderSelected;
   }
 
   private isPassConfirmed(): boolean {
     return this.user.password === this.confirmationPass;
+  }
+
+  selectGender() {
+    this.isGenderSelected = true;
   }
 
 

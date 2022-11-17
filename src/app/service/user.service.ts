@@ -9,7 +9,7 @@ import { RegisteredUser} from '../model/registered-user.model';
 })
 export class UserService {
   apiHost: string = 'http://localhost:8080/';
-  headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin":'http://localhost:4200/login' });
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,9 @@ export class UserService {
     return this.http.post<any>(this.apiHost + 'users/registerUser', user, {headers: this.headers});
   }
 
+  login(data: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'login', data, {headers: this.headers});
+  }
   searchRegisteredUsersByNameAndSurname(name:string,surname:string): Observable<RegisteredUser[]> {
     return this.http.get<RegisteredUser[]>(this.apiHost + 'users/search/'+ name + '/' + surname, {headers: this.headers});
   }

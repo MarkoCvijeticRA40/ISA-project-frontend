@@ -1,4 +1,4 @@
-<div>
+<body>
 <form class="container">
     <mat-form-field class="example-full-width" style="color: white;">
       <input matInput placeholder="Email"  [formControl]="emailFormControl"
@@ -84,7 +84,7 @@
       </mat-form-field><br>
 
       <mat-form-field class="example-full-width" style="color: white;">
-        <input matInput placeholder="Identity number" [formControl]="requiredIDControl"
+        <input matInput type="number" placeholder="Identity number" [formControl]="requiredIDControl"
                [errorStateMatcher]="matcher" [(ngModel)]="user.identityNumber">
         <mat-error *ngIf="requiredIDControl.hasError('required')">
             Identity number is <strong>required</strong>
@@ -96,7 +96,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Gender</mat-label>
-        <mat-select [(ngModel)]="user.gender">
+        <mat-select [(ngModel)]="user.gender" (selectionChange)="selectGender()">
             <mat-option *ngFor="let gender of genders" [value]="gender.value" >
                 {{gender.viewValue}}
             </mat-option>
@@ -120,4 +120,4 @@
         Submit
     </button>
 </form> 
-</div>
+</body>

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register/user', component: RegisterUserComponent},
   { path: 'register/center', component: RegisterCenterComponent},
-  { path: 'registeredUsers', component: RegisteredUsersComponent}
+  { path: 'registeredUsers', component: RegisteredUsersComponent},
   { path: 'profile' , component: ShowProfileComponent },
   { path: 'editprofile' , component: EditProfileComponent },
   { path: 'adminprofile',component: ShowAdministratorProfileComponent},

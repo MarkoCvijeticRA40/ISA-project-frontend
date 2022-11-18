@@ -1,4 +1,5 @@
 <div class="container">
+  <button class="nameBtn" (click)="sortByNameAsc()">&#8593;</button> <button (click)="sortByNameDesc()">&#8595;</button> <button class="gradeBtn" (click)="sortByAvgGradeAsc()">&#8593;</button> <button (click)="sortByAvgGradeDesc()">&#8595;</button>
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef class="cell-center"> Name </th>

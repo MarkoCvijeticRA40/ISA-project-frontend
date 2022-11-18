@@ -43,3 +43,11 @@ p {
     float: left;
     margin-right: auto;
 }
+
+.nameBtn {
+    margin-left: 70px;
+}
+
+.gradeBtn {
+    margin-left: 530px;
+}

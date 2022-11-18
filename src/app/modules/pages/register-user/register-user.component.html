@@ -84,7 +84,7 @@
       </mat-form-field><br>
 
       <mat-form-field class="example-full-width" style="color: white;">
-        <input matInput type="number" placeholder="Identity number" [formControl]="requiredIDControl"
+        <input matInput placeholder="Identity number" [formControl]="requiredIDControl"
                [errorStateMatcher]="matcher" [(ngModel)]="user.identityNumber">
         <mat-error *ngIf="requiredIDControl.hasError('required')">
             Identity number is <strong>required</strong>

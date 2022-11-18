@@ -32,4 +32,25 @@ export class CenterService {
   updateCenter(center: Center): Observable<any> {
     return this.http.put<any>(this.apiHost + 'centers/update-center/' + center.id, center, {headers: this.headers});
   }
+
+  registerCenter(center:Center): Observable<any>{
+    return this.http.post<any>(this.apiHost + 'centers/registerCenter', center, {headers: this.headers})
+  }
+
+  getCentersSortedByNameAsc(): Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/name/asc', {headers: this.headers});
+  }
+
+  getCentersSortedByNameDesc(): Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/name/desc', {headers: this.headers});
+  }
+
+  getCentersSortedByAvgGradeAsc(): Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/grade/asc', {headers: this.headers});
+  }
+
+  getCentersSortedByAvgGradeDesc(): Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/grade/desc', {headers: this.headers});
+  }
+
 }

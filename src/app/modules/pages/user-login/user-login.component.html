@@ -1,0 +1,17 @@
+<body>
+    <div>
+    <form class="container">
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Email" name="email" [(ngModel)]="data.email">
+        </mat-form-field><br>
+    
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="data.password">
+          </mat-form-field><br>
+    
+          <button mat-stroked-button (click)="login()"> 
+            Login
+        </button>
+    </form>
+    </div> 
+</body>

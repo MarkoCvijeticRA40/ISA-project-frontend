@@ -11,8 +11,7 @@ import { CdkTableModule } from "@angular/cdk/table";
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +20,7 @@ import { CdkTableModule } from "@angular/cdk/table";
     MaterialModule,
     PagesModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

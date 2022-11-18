@@ -1,0 +1,201 @@
+<body>
+    <form class="container">
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Name"  [formControl]="requiredNameControl"
+                 [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.name">
+          <mat-error *ngIf="requiredNameControl.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field><br>
+    
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Surname" [formControl]="requiredSurnameControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.surname">
+            <mat-error *ngIf="requiredSurnameControl.hasError('required')">
+                Surname is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Name of father" [formControl]="requiredNameOfFatherControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.nameOfFather">
+            <mat-error *ngIf="requiredNameOfFatherControl.hasError('required')">
+                Name of father is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Identity number" [formControl]="requiredIDControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.identityNumber">
+            <mat-error *ngIf="requiredIDControl.hasError('required')">
+                Identity number is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="requiredIDControl.hasError('pattern')">
+                Identity number must have <strong>13 digits</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field>
+            <mat-label>Date of birth</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="donorPoll.dateOfBirth"
+            [formControl]="requiredDateControl"
+                   [errorStateMatcher]="matcher">
+                <mat-error *ngIf="requiredDateControl.hasError('required')">
+                    Date of birth is <strong>required</strong>
+                </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Phone number" [formControl]="requiredPhoneControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.phoneNum">
+            <mat-error *ngIf="requiredPhoneControl.hasError('required')">
+                Phone number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Facility, college, school" [formControl]="requiredFacilityControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.facility">
+            <mat-error *ngIf="requiredFacilityControl.hasError('required')">
+                This info is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Profession" [formControl]="requiredProfessionControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.profession">
+            <mat-error *ngIf="requiredProfessionControl.hasError('required')">
+                Profession is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput type="number" placeholder="Number of blood donations " [formControl]="requiredNumberControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.numberOfBloodDonations">
+            <mat-error *ngIf="requiredNumberControl.hasError('required')">
+                Number of blood donations is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="City" [formControl]="requiredCityControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.city">
+            <mat-error *ngIf="requiredCityControl.hasError('required')">
+                City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="State" [formControl]="requiredStateControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.state">
+            <mat-error *ngIf="requiredStateControl.hasError('required')">
+                State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Street" [formControl]="requiredStreetControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.street">
+            <mat-error *ngIf="requiredStreetControl.hasError('required')">
+                Street is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Number of home" [formControl]="requiredNumberControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.number">
+            <mat-error *ngIf="requiredNumberControl.hasError('required')">
+                Number of home is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select [(ngModel)]="donorPoll.gender" (selectionChange)="selectGender()">
+                <mat-option *ngFor="let gender of genders" [value]="gender.value" >
+                    {{gender.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+         
+            <mat-label style="color: white;">Have you ever donated blood before?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueOne"
+                name="myValueOne">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+     
+
+            <mat-label style="color: white;">Is your profession dangerous?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueTwo"
+                name="myValueTwo">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+
+            <mat-label style="color: white;">Have you ever been rejected to donate blood?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueThree"
+                name="myValueThree">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+
+
+            <mat-label style="color: white;">Are you taking any medicines right now?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueFour"
+                name="MyValueFour">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+
+            <mat-label style="color: white;">Do you have some allergies?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueFive"
+                name="muValueFive">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+
+            <mat-label style="color: white;">Do you suffer from some chronic disease?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueSix"
+                name="myValueSix">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+
+            <mat-label style="color: white;">Are you feeling healthy?</mat-label><br>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                [(ngModel)]="myValueSeven"
+                name="myValueSeven">
+                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                {{obj}}
+                </mat-radio-button>
+                </mat-radio-group><br><br>
+    
+        
+        <button mat-stroked-button (click)="save()"> 
+            Submit
+        </button>
+    </form> 
+    </body>

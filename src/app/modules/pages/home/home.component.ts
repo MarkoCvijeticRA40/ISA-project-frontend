@@ -30,6 +30,38 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  sortByNameAsc() {
+    this.centerService.getCentersSortedByNameAsc().subscribe(res => {
+      this.centers = res;
+      this.setWorkTime();
+      this.dataSource.data = this.centers;
+    })
+  }
+
+  sortByNameDesc() {
+    this.centerService.getCentersSortedByNameDesc().subscribe(res => {
+      this.centers = res;
+      this.setWorkTime();
+      this.dataSource.data = this.centers;
+    })
+  }
+
+  sortByAvgGradeAsc() {
+    this.centerService.getCentersSortedByAvgGradeAsc().subscribe(res => {
+      this.centers = res;
+      this.setWorkTime();
+      this.dataSource.data = this.centers;
+    })
+  }
+
+  sortByAvgGradeDesc() {
+    this.centerService.getCentersSortedByAvgGradeDesc().subscribe(res => {
+      this.centers = res;
+      this.setWorkTime();
+      this.dataSource.data = this.centers;
+    })
+  }
+  
 
   private setWorkTime() {
     for (let center of this.centers) {

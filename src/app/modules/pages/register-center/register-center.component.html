@@ -1,0 +1,83 @@
+<div>
+    <form class="container">
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Name"  [formControl]="requiredNameCenterControl"
+                 [errorStateMatcher]="matcher" [(ngModel)]="center.name">
+          <mat-error *ngIf="requiredNameCenterControl.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Description"  [formControl]="requiredDescriptionCenterControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="center.description">
+            <mat-error *ngIf="requiredDescriptionCenterControl.hasError('required')">
+              Description is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+  
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="City" [formControl]="requiredCityControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="center.address.city">
+            <mat-error *ngIf="requiredCityControl.hasError('required')">
+                City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+  
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="State" [formControl]="requiredStateControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="center.address.state">
+            <mat-error *ngIf="requiredStateControl.hasError('required')">
+                State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Street" [formControl]="requiredStreetControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="center.address.street">
+            <mat-error *ngIf="requiredStreetControl.hasError('required')">
+                Street is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+   
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Number of home" [formControl]="requiredNumberControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="center.address.number">
+            <mat-error *ngIf="requiredNumberControl.hasError('required')">
+                Number of home is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+
+
+         <mat-form-field >
+            <mat-label>Start work time</mat-label>
+            <mat-select [formControl]="requireStartWorkTimeControl"  [errorStateMatcher]="matcher" [(ngModel)]="center.workTime.startTime" >
+                <mat-option *ngFor="let time of times" [value]="time.value" >
+                  {{time.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="requireStartWorkTimeControl.hasError('required')">
+                Start work time <strong>required</strong>
+            </mat-error>
+            
+        </mat-form-field><br>
+        
+        <mat-form-field >
+            <mat-label>End work time</mat-label>
+            <mat-select [formControl]="requireEndWorkTimeControl"  [errorStateMatcher]="matcher" [(ngModel)]="center.workTime.endTime" >
+                <mat-option *ngFor="let time of times" [value]="time.value" >
+                  {{time.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="requireEndWorkTimeControl.hasError('required')">
+                Start work time <strong>required</strong>
+            </mat-error>
+            
+        </mat-form-field><br>
+        
+        
+        <button mat-stroked-button (click)="registerCenter()"> 
+            Submit
+        </button>
+    </form> 
+    
+</div>

@@ -1,5 +1,5 @@
 export class Address {
-    id: number = 0;
+    id:  number = 0;;
     street: string = '';
     number: string = '';
     city: string = '';
@@ -15,7 +15,7 @@ export class Address {
             this.city = obj.city;
             this.state = obj.state;
             this.longitude = obj.longitude;
-            this.latitude = obj.latitude;
+            this.latitude = obj.latitude;  
         }
     }
 }

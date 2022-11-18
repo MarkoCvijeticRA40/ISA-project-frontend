@@ -24,4 +24,12 @@ export class CenterService {
   filterCenters(searchByName: string, searchByPlace: string, gradeFrom: number = 0, gradeTo: number = 0): Observable<Center[]> {
     return this.http.get<Center[]>(this.apiHost + 'centers/filter?searchByName=' + searchByName + '&searchByPlace=' + searchByPlace + '&gradeFrom=' + gradeFrom + '&gradeTo=' + gradeTo, {headers: this.headers});
   }
+
+  getCenterByMedicalStaffId(id: number): Observable<Center> {
+    return this.http.get<Center>(this.apiHost + 'centers/medical-staff/' + id, {headers: this.headers});
+  }
+
+  updateCenter(center: Center): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'centers/update-center/' + center.id, center, {headers: this.headers});
+  }
 }

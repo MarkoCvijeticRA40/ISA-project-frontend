@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module'; 
 import { HomeComponent } from './home/home.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { UpdateCenterComponent } from './update-center/update-center.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 import { MaterialModule } from 'src/app/material/material.module';
@@ -27,9 +32,11 @@ const routes: Routes = [
   
 ];
 
+
 @NgModule({
   declarations: [
     HomeComponent,
+    UpdateCenterComponent,
     RegisterUserComponent,
     UserLoginComponent,
     DonorPollComponent,
@@ -40,10 +47,12 @@ const routes: Routes = [
     CommonModule,
     AppRoutingModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
     MatDatepickerModule,

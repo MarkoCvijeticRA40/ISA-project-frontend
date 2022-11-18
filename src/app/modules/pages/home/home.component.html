@@ -1,3 +1,27 @@
+<div class="filter-search">
+  <div class="search">
+    <mat-form-field appearance="fill" class="field">
+        <mat-label>Search by name</mat-label>
+        <input matInput type="text" (keyup)="searchCentersByName($event)">
+    </mat-form-field><br/>
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Search by place</mat-label>
+      <input matInput type="text" (keyup)="searchCentersByPlace($event)">
+    </mat-form-field><br>
+  </div>
+  <div class="filter">
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Filter by grade (from)</mat-label>
+      <input matInput type="number" min="0" max="5" [(ngModel)]="gradeFrom">
+    </mat-form-field><br>
+    <h1 class="line"> - </h1>
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Filter by grade (to)</mat-label>
+      <input matInput type="number" min="0" max="5" [(ngModel)]="gradeTo">
+    </mat-form-field><br>
+  </div>
+  <button mat-button class="button" (click)="filterCentersByGrade($event)">Filter</button>
+</div>
 <div class="container">
   <button class="nameBtn" (click)="sortByNameAsc()">&#8593;</button> <button (click)="sortByNameDesc()">&#8595;</button> <button class="gradeBtn" (click)="sortByAvgGradeAsc()">&#8593;</button> <button (click)="sortByAvgGradeDesc()">&#8595;</button>
   <table mat-table [dataSource]="dataSource">

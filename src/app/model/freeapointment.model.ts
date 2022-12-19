@@ -4,18 +4,18 @@ import { Medicalstaff } from "./medicalstaff.model";
 export class Freeapointment {
 
     id: number = 0;
-    dateStart: Date = new Date();
+    date: Date = new Date();
     duration: number = 0;
-    freeAppointments: any[] = [];
-    centers: any[] = [];
+    center: any;
+    medicalStaff: any;
 
     public constructor(obj?: any) {
         if (obj) {
             this.id = obj.id;
-            this.dateStart = obj.dateStart;
+            this.date = obj.date;
             this.duration = obj.duration;
-            this.centers = obj.centers;
-            this.freeAppointments = obj.freeAppointments;
+            this.center = obj.center;
+            this.medicalStaff = obj.medicalStaff;
         }
     }
 }

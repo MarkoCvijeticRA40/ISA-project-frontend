@@ -16,7 +16,7 @@ export class Medicalstaff {
 
     find(email: string): Observable<any>{
         return this.http.get<any>(this.apiHost + "medicalstaff/" + email, { headers : this.headers});
-      }
+    }
 
 
 

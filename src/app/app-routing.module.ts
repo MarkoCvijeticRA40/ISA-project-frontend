@@ -6,6 +6,7 @@ import { ShowProfileComponent } from "./modules/pages/show-profile/show-profile.
 import { EditProfileComponent } from "./modules/pages/edit-profile/edit-profile.component";
 import { ShowAdministratorProfileComponent } from "./modules/pages/show-administrator-profile/show-administrator-profile.component";
 import { EditAdministratorProfileComponent } from "./modules/pages/edit-administrator-profile/edit-administrator-profile.component";
+import { CaCreateFreeAppComponent } from "./modules/pages/ca-create-free-app/ca-create-free-app.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'profile' , component: ShowProfileComponent },
   { path: 'editprofile' , component: EditProfileComponent },
   { path: 'adminprofile',component: ShowAdministratorProfileComponent},
-  { path: 'editadminprofile',component: EditAdministratorProfileComponent}
+  { path: 'editadminprofile',component: EditAdministratorProfileComponent},
+  { path: 'cacreateapp',component: CaCreateFreeAppComponent},
 ];
 
 @NgModule({

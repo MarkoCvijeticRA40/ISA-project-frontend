@@ -28,7 +28,7 @@ export class UserService {
     return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
   }
 
-  //koliko sam shvatio iz specifikacije administrator centra spada u medical staff,ima odradjeno i za system adminsitratora ako je to mozda
+  
   saveAdministrator(user: any): Observable<any>{
     return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , user , { headers : this.headers });          
   }

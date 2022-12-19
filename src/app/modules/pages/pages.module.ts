@@ -7,12 +7,17 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
 import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
+import { CaCreateFreeAppComponent } from './ca-create-free-app/ca-create-free-app.component';
+import { MatDatepicker, MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 
 /*const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +32,7 @@ import { EditAdministratorProfileComponent } from './edit-administrator-profile/
     EditProfileComponent,
     ShowAdministratorProfileComponent,
     EditAdministratorProfileComponent,
+    CaCreateFreeAppComponent,
   ],
   imports: [
     CommonModule,
@@ -37,8 +43,11 @@ import { EditAdministratorProfileComponent } from './edit-administrator-profile/
     FormsModule,
     MatFormFieldModule,
     MatSelectModule,   
-    AppRoutingModule
-
+    AppRoutingModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

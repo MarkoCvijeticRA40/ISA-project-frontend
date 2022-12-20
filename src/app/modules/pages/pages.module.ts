@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module'; 
 import { HomeComponent } from './home/home.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
 import { UpdateCenterComponent } from './update-center/update-center.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
@@ -70,8 +66,8 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
-    MatRadioModule,
+    MatInputModule,
+    MatRadioModule
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

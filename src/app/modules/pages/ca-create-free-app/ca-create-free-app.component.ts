@@ -5,6 +5,7 @@ import { Medicalstaff } from 'src/app/model/medicalstaff.model';
 import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { FreeappointmentService } from 'src/app/service/freeappointment.service';
 import { UserService } from 'src/app/service/user.service';
+import { Address } from 'src/app/model/address.model';
 
 @Component({
   selector: 'app-ca-create-free-app',
@@ -19,7 +20,10 @@ export class CaCreateFreeAppComponent implements OnInit {
 
   public medicalStaff : Medicalstaff = new Medicalstaff();
 
-  public center : Center = new Center();
+  public centerForFreeApp : Center = new Center();
+
+  public adressForFreeApp : Address = new Address();
+  
   
   times = [
     {value: '8:00', viewValue: '8:00'},
@@ -42,13 +46,18 @@ export class CaCreateFreeAppComponent implements OnInit {
   
   constructor(private freeAppointmentService: FreeappointmentService,private userService: UserService) { }
 
+
   public createFreeAppointment() {
     this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
       this.freeAppointment = res;
+      alert("You have successfully created a free appointment");
     })
   }
 
   ngOnInit(): void {
+    this.centerForFreeApp.id = 1;
+    this.centerForFreeApp.address = this.adressForFreeApp;
+    this.freeAppointment.center = this.centerForFreeApp;
     this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
       this.medicalStaff = res;  
         this.freeAppointment.medicalStaff = this.medicalStaff; 

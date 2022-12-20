@@ -17,26 +17,30 @@ export class CaCreateFreeAppComponent implements OnInit {
   startDate : Date = new Date();
 
   public freeAppointment : Freeapointment = new Freeapointment();
-
+  
   public medicalStaff : Medicalstaff = new Medicalstaff();
 
   public centerForFreeApp : Center = new Center();
 
   public adressForFreeApp : Address = new Address();
+
+  hour : number = 0;
+
+  minute : number = 0;
   
   
-  times = [
-    {value: '8:00', viewValue: '8:00'},
-    {value: '8:30', viewValue: '8:30'},
-    {value: '9:00', viewValue: '9:00'},
-    {value: '9:30', viewValue: '9:30'},
-    {value: '10:00', viewValue: '10:00'},
-    {value: '10:30', viewValue: '10:30'},
-    {value: '11:00', viewValue: '11:00'},
-    {value: '11:30', viewValue: '11:30'},
-    {value: '12:00', viewValue: '12:00'},
-    {value: '12:30', viewValue: '12:30'},
-    {value: '13:00', viewValue: '13:00'},
+  hours = [
+    {value: 8,  viewValue: '8'},
+    {value: 9,  viewValue: '9'},
+    {value: 10, viewValue: '10'},
+    {value: 11, viewValue: '11'},
+    {value: 12, viewValue: '12'},
+    {value: 13, viewValue: '13'},
+  ];
+
+  minutes = [
+    {value: 0,  viewValue: '00'},
+    {value: 30, viewValue: '30'},
   ];
 
   durations = [
@@ -48,6 +52,17 @@ export class CaCreateFreeAppComponent implements OnInit {
 
 
   public createFreeAppointment() {
+    this.freeAppointment.date.setHours(1);
+    if(this.minute == 30)
+    {
+      this.freeAppointment.date.setMinutes(30)
+    }
+    else
+    {
+      this.freeAppointment.date.setMinutes(0);
+    }
+    this.freeAppointment.date.setHours(this.hour);
+    this.freeAppointment.date.setMinutes(this.minute);
     this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
       this.freeAppointment = res;
       alert("You have successfully created a free appointment");

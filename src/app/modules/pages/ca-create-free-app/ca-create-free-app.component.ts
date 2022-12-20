@@ -24,14 +24,14 @@ export class CaCreateFreeAppComponent implements OnInit {
 
   public adressForFreeApp : Address = new Address();
 
-  hour : number = 0;
+  hour : number = 8;
 
   minute : number = 0;
   
   
   hours = [
-    {value: 8,  viewValue: '8'},
-    {value: 9,  viewValue: '9'},
+    {value: 8,  viewValue: '08'},
+    {value: 9,  viewValue: '09'},
     {value: 10, viewValue: '10'},
     {value: 11, viewValue: '11'},
     {value: 12, viewValue: '12'},
@@ -52,7 +52,10 @@ export class CaCreateFreeAppComponent implements OnInit {
     {value: 60, viewValue: "60"},
   ];
   
-  constructor(private freeAppointmentService: FreeappointmentService,private userService: UserService) { }
+  constructor(private freeAppointmentService: FreeappointmentService,private userService: UserService) 
+  { 
+    this.startDate.setDate(this.startDate.getDate() + 1);
+  }
 
 
   public createFreeAppointment() {
@@ -70,11 +73,13 @@ export class CaCreateFreeAppComponent implements OnInit {
     this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
       this.freeAppointment = res;
       alert("You have successfully created a free appointment");
+      location.reload();
     })
   }
 
   ngOnInit(): void {
     this.centerForFreeApp.id = 1;
+    this.freeAppointment.duration = 15;
     this.centerForFreeApp.address = this.adressForFreeApp;
     this.freeAppointment.center = this.centerForFreeApp;
     this.userService.findAdministrator("milan@gmail.com").subscribe(res => {

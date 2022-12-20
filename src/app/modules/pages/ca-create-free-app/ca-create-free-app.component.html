@@ -1,0 +1,50 @@
+<h1>
+    Create free appointment
+</h1>
+<div class="container">
+    <div>
+        <mat-form-field id="mat1">
+            <mat-label>Start Date:</mat-label>
+            <input matInput [(ngModel)]="freeAppointment.date" [matDatepicker]="picker" [min]="startDate" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker id="picker" #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+        
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Hour</mat-label>
+            <mat-select [(ngModel)]="hour">
+                <mat-option *ngFor="let hour of hours" [value]="hour.value">
+                  {{hour.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Minute</mat-label>
+            <mat-select [(ngModel)]="minute">
+                <mat-option *ngFor="let minute of minutes" [value]="minute.value">
+                  {{minute.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Duration</mat-label>
+            <mat-select [(ngModel)]="freeAppointment.duration">
+                <mat-option *ngFor="let duration of durations" [value]="duration.value">
+                  {{duration.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button mat-stroked-button (click)="createFreeAppointment()">
+        Submit
+    </button>
+</div>

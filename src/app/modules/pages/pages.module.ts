@@ -13,11 +13,17 @@ import { RegisteredUsersComponent } from './registered-users/registered-users.co
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { ShowProfileComponent } from './show-profile/show-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
+import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
+import { CaCreateFreeAppComponent } from './ca-create-free-app/ca-create-free-app.component';
+import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DonorPollComponent } from './donor-poll/donor-poll.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule, Routes } from "@angular/router";
@@ -38,6 +44,11 @@ const routes: Routes = [
     HomeComponent,
     UpdateCenterComponent,
     RegisterUserComponent,
+    ShowProfileComponent,
+    EditProfileComponent,
+    ShowAdministratorProfileComponent,
+    EditAdministratorProfileComponent,
+    CaCreateFreeAppComponent,
     UserLoginComponent,
     DonorPollComponent,
     RegisteredUsersComponent,
@@ -53,11 +64,14 @@ const routes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSelectModule,
-    MatRadioModule,
+    MatFormFieldModule,
+    MatSelectModule,   
+    AppRoutingModule,
     MatDatepickerModule,
-    MatNativeDateModule
-    
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
+    MatRadioModule,
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

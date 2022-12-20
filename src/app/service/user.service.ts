@@ -14,7 +14,23 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'users/registerUser', user, {headers: this.headers});
+    return this.http.post<any>(this.apiHost + 'users/registeredUser', user, {headers: this.headers});
+  }
+
+  find(email: string): Observable<any>{
+    return this.http.get<any>(this.apiHost + "registeredusers/" + email, { headers : this.headers});
+  }
+
+  findAdministrator(email: string): Observable<any>{
+    return this.http.get<any>(this.apiHost + "medicalstaff/" + email, { headers : this.headers});
+  }
+
+  save(user: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
+  }
+  
+  saveAdministrator(user: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , user , { headers : this.headers });          
   }
 
   login(data: any): Observable<any> {
@@ -31,10 +47,7 @@ export class UserService {
   searchRegisteredUsersBySurname(surname:string): Observable<RegisteredUser[]> {
     return this.http.get<RegisteredUser[]>(this.apiHost + 'users/searchSurname/' + surname, {headers: this.headers});
   }
-
   
-  
-
   getRegisteredUsers(): Observable<RegisteredUser[]> {
     return this.http.get<RegisteredUser[]>(this.apiHost + 'users/registeredUsers', {headers: this.headers});
   }

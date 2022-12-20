@@ -27,6 +27,7 @@ import { RegisterCenterComponent } from './register-center/register-center.compo
 
 
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register/user', component: RegisterUserComponent},

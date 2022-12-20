@@ -39,13 +39,17 @@ export class CaCreateFreeAppComponent implements OnInit {
   ];
 
   minutes = [
-    {value: 0,  viewValue: '00'},
-    {value: 30, viewValue: '30'},
+    {value: 0,   viewValue: '00'},
+    {value: 15,  viewValue: '15'},
+    {value: 30,  viewValue: '30'},
+    {value: 60,  viewValue: '60'},
   ];
 
   durations = [
     {value: 15, viewValue: "15"},
     {value: 30, viewValue: "30"},
+    {value: 45, viewValue: "45"},
+    {value: 60, viewValue: "60"},
   ];
   
   constructor(private freeAppointmentService: FreeappointmentService,private userService: UserService) { }
@@ -53,9 +57,9 @@ export class CaCreateFreeAppComponent implements OnInit {
 
   public createFreeAppointment() {
     this.freeAppointment.date.setHours(1);
-    if(this.minute == 30)
+    if(this.minute != 0)
     {
-      this.freeAppointment.date.setMinutes(30)
+      this.freeAppointment.date.setMinutes(this.minute);
     }
     else
     {

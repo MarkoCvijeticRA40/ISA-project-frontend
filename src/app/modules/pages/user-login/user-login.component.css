@@ -5,7 +5,7 @@
   }
 
   .container {
-    width: 50%;
+    width: 30%;
     margin: auto;
     margin-top: 20px;
     border-radius: 3px;
@@ -15,7 +15,8 @@
     border-width: 3px;
     border-radius: 20px;
     padding: 5px;
-    background-color: rgb(22, 24, 37)
+    background-color: rgb(22, 24, 37);
+    
 }
   
   .example-full-width {
@@ -29,6 +30,7 @@ button {
 
 div {
     background-color: rgb(70, 85, 82);
+    padding-top: 10%;
 }
 
 .a {
@@ -36,7 +38,6 @@ div {
 }
 
 body {
-  background-color: rgb(70, 85, 82);
-  height: max-content;
-}
-  
+    background-color: rgb(70, 85, 82);
+    height: 100%;
+  }

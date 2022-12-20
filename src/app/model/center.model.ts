@@ -1,16 +1,19 @@
+import { Address } from "./address.model";
 import { WorkTime } from "./work-time.model";
+import { Address } from "./address.model";
 
 export class Center {
     id: number = 0;
     name: string = '';
     description: string = '';
     avgGrade: number = 0;
-    address: any = null;
+    address: Address = new Address();
     workTime: WorkTime = new WorkTime();
     blood: any[] = [];
     equipments: any[] = [];
     freeAppointments: any[] = [];
     medicalStaff: any[] = [];
+
 
     public constructor(obj?: any) {
         if (obj) {

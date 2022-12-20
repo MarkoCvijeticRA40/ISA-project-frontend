@@ -1,0 +1,56 @@
+<div>
+    <div class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="center.name">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="center.description">
+            </textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Street</mat-label>
+            <input matInput type="text" [(ngModel)]="center.address.street">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Number</mat-label>
+            <input matInput type="text" [(ngModel)]="center.address.number">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput type="text" [(ngModel)]="center.address.city">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <input matInput type="text" [(ngModel)]="center.address.state">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Longitude</mat-label>
+            <input matInput type="number" [(ngModel)]="center.address.longitude">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Latitude</mat-label>
+            <input matInput type="number" [(ngModel)]="center.address.latitude">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Start time</mat-label>
+            <mat-select  [(ngModel)]="center.workTime.startTime">
+                <mat-option *ngFor="let time of times" [value]="time.value">
+                  {{time.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>End time</mat-label>
+            <mat-select  [(ngModel)]="center.workTime.endTime">
+                <mat-option *ngFor="let time of times" [value]="time.value">
+                  {{time.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+        <button mat-stroked-button (click)="updateCenter()">
+            Submit
+        </button>
+    </div>
+</div>

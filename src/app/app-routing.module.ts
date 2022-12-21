@@ -12,6 +12,7 @@ import { CaCreateFreeAppComponent } from "./modules/pages/ca-create-free-app/ca-
 import { UserLoginComponent } from "./modules/pages/user-login/user-login.component";
 import { RegisterCenterComponent } from "./modules/pages/register-center/register-center.component";
 import { RegisteredUsersComponent } from './modules/pages/registered-users/registered-users.component';
+import { RuCreateAppComponent } from "./modules/pages/ru-create-app/ru-create-app.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'adminprofile',component: ShowAdministratorProfileComponent},
   { path: 'editadminprofile',component: EditAdministratorProfileComponent},
   { path: 'cacreateapp',component: CaCreateFreeAppComponent},
+  { path: 'rucreateapp',component: RuCreateAppComponent},
   { path: 'login', component: UserLoginComponent},
   { path: 'poll', component: DonorPollComponent},
   { path: 'register/center', component: RegisterCenterComponent},

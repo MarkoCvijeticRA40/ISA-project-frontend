@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
+import { RuCreateAppComponent } from './ru-create-app/ru-create-app.component';
 
 
 
@@ -49,7 +50,8 @@ const routes: Routes = [
     UserLoginComponent,
     DonorPollComponent,
     RegisteredUsersComponent,
-    RegisterCenterComponent
+    RegisterCenterComponent,
+    RuCreateAppComponent
   ],
   imports: [
     CommonModule,

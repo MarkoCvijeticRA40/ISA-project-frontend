@@ -16,6 +16,12 @@ export class CaCreateFreeAppComponent implements OnInit {
 
   startDate : Date = new Date();
 
+  workTimeDateStart : Date = new Date();
+
+  workTimeDateEnd : Date = new Date();
+
+  freeAppointmentStartWithDuration : Date = new Date();
+
   public freeAppointment : Freeapointment = new Freeapointment();
   
   public medicalStaff : Medicalstaff = new Medicalstaff();
@@ -27,7 +33,11 @@ export class CaCreateFreeAppComponent implements OnInit {
   hour : number = 8;
 
   minute : number = 0;
-  
+
+  workTimeHour : number = 0;
+
+  workTimeMinute : number = 0;
+
   hours = [
     {value: 8,  viewValue: '08'},
     {value: 9,  viewValue: '09'},
@@ -65,24 +75,60 @@ export class CaCreateFreeAppComponent implements OnInit {
     this.startDate.setDate(this.startDate.getDate() + 1);
   }
 
+  public isWorkTimeValid() {
+    
+    //Kreiranje novog datuma koji postavljamo na datum free appointmenta,i postavljamo sat i minut od worktime da bih mogao da poredim -<> workTimeStart
+    var stringForSplit = this.centerForFreeApp.workTime.startTime;   
+    var splitedFirstDate = stringForSplit.split(':');
+    this.workTimeHour = parseInt(splitedFirstDate[0]);
+    this.workTimeMinute = parseInt(splitedFirstDate[1])
+    this.workTimeDateStart = new Date(this.freeAppointment.date);
+    this.workTimeDateStart.setHours(this.workTimeHour);
+    this.workTimeDateStart.setMinutes(this.workTimeMinute);
+
+    //Kreiranje novog datuma koji postavljamo na datum free appointmenta,i postavljamo sat i minut od worktime da bih mogao da poredim -<> workTimeEnd
+    var stringForSplit = this.centerForFreeApp.workTime.endTime;   
+    var splitedFirstDate = stringForSplit.split(':');
+    this.workTimeHour = parseInt(splitedFirstDate[0]);
+    this.workTimeMinute = parseInt(splitedFirstDate[1]);
+    this.workTimeDateEnd = new Date(this.freeAppointment.date);
+    this.workTimeDateEnd.setHours(this.workTimeHour);
+    this.workTimeDateEnd.setMinutes(this.workTimeMinute);
+
+    //Dodamo na termin appointmenta i duzinu trajanja jer i ona treba da bude ukljucena u potvrdu
+    this.freeAppointmentStartWithDuration = new Date(this.freeAppointment.date.setMinutes(this.freeAppointment.date.getMinutes() + this.freeAppointment.duration));
+    
+    if(this.freeAppointmentStartWithDuration >= this.workTimeDateStart && this.freeAppointmentStartWithDuration <= this.workTimeDateEnd ) {
+      
+      this.freeAppointmentStartWithDuration = new Date();
+      return true;
+    }
+
+    return false;
+  }
 
   public createFreeAppointment() {
     this.freeAppointment.date.setHours(1);
-    if(this.minute != 0)
-    {
-      this.freeAppointment.date.setMinutes(this.minute);
-    }
-    else
-    {
-      this.freeAppointment.date.setMinutes(0);
-    }
+    this.freeAppointment.date.setSeconds(0);
+    this.freeAppointment.center = this.centerForFreeApp;
     this.freeAppointment.date.setHours(this.hour);
     this.freeAppointment.date.setMinutes(this.minute);
-    this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
-      this.freeAppointment = res;
-      alert("You have successfully created a free appointment");
-      location.reload();
-    })
+    
+    if(this.isWorkTimeValid() == true) 
+    {
+      this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
+        this.freeAppointment = res;
+        alert("You have successfully created a free appointment");
+        this.freeAppointment = new Freeapointment();
+        this.ngOnInit();
+      })
+    }
+    else 
+    {
+      alert("The center is not open during this period. The center is open from" + '' + this.centerForFreeApp.workTime.startTime + '' + "to" + '' + this.centerForFreeApp.workTime.endTime);
+      this.freeAppointment = new Freeapointment();
+      this.ngOnInit();
+    }
   }
 
   ngOnInit(): void {
@@ -92,7 +138,6 @@ export class CaCreateFreeAppComponent implements OnInit {
     })
     this.centerService.getCenterByMedicalStaffId(1).subscribe(res => {
       this.centerForFreeApp = res;   
-        this.freeAppointment.center = this.centerForFreeApp;
     })
     this.freeAppointment.duration = 15;
   }

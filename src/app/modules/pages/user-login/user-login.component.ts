@@ -26,7 +26,7 @@ export class UserLoginComponent implements OnInit {
       });
     },
     error => {
-      alert("Incorrect username or password.")
+      alert("Incorrect username or password.");
     })
       
   }

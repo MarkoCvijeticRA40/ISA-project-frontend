@@ -7,7 +7,10 @@ import { MedicalStaff } from 'src/app/model/medical-staff.model';
 import { Center } from 'src/app/model/center.model';
 
 
+
 import { CenterService } from 'src/app/service/center.service';
+import { UserService } from 'src/app/service/user.service';
+import { ThisReceiver } from '@angular/compiler';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -27,6 +30,7 @@ export class RegisterCenterComponent implements OnInit {
   public center: Center = new Center()
   
   public medicalStaff: MedicalStaff = new MedicalStaff();
+
 
   public confirmationPass: string = '';
 
@@ -63,7 +67,7 @@ export class RegisterCenterComponent implements OnInit {
 
   ];
 
-  constructor(private centerService: CenterService, private router: Router) { }
+  constructor(private centerService: CenterService,private userService: UserService, private router: Router) { }
 
 
   genders = [
@@ -81,15 +85,35 @@ export class RegisterCenterComponent implements OnInit {
   }
   
   public registerCenter() {
-    if (this.isInputValid()) {
-        if(this.isWorkTimeValid()){
+      
+
+      this.setMedicalStaff();
+
+      
+     if (this.isInputValid()) {
+
+       if(this.isWorkTimeValid()){
+      
+        this.userService.registerCenterAdministrator(this.medicalStaff).subscribe(res => {
+        this.userService.findAdministrator(this.medicalStaff.email).subscribe(res => {
+        this.center.medicalStaff.push(res);
+
         this.centerService.registerCenter(this.center).subscribe(res => {
+    
           alert("You have registered center successfully!");
         })
+        
+        });
+        
+        });
+    
       }else{
         alert("End work time must be greater than start work time!");
       }
     }
+    
+    
+
   }
 
 
@@ -117,6 +141,10 @@ export class RegisterCenterComponent implements OnInit {
     Validators.required,
   ]);
 
+  requireGenderControl = new FormControl('', [
+    Validators.required,
+  ]);
+
 
   requiredDescriptionCenterControl = new FormControl('', [
     Validators.required,
@@ -126,19 +154,19 @@ export class RegisterCenterComponent implements OnInit {
     Validators.required,
   ]);
 
-  requiredCityControl = new FormControl('', [
+  requiredCenterCityControl = new FormControl('', [
     Validators.required,
   ]);
 
-  requiredStateControl = new FormControl('', [
+  requiredCenterStateControl = new FormControl('', [
     Validators.required,
   ]);
 
-  requiredStreetControl = new FormControl('', [
+  requiredCenterStreetControl = new FormControl('', [
     Validators.required,
   ]);
 
-  requiredNumberControl = new FormControl('', [
+  requiredCenterNumberControl = new FormControl('', [
     Validators.required,
   ]);
 
@@ -159,6 +187,21 @@ export class RegisterCenterComponent implements OnInit {
     Validators.required,
   ])
 
+  requiredCityControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  requiredStateControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  requiredStreetControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  requiredNumberControl = new FormControl('', [
+    Validators.required,
+  ]);
 
   matcher = new MyErrorStateMatcher();
 
@@ -167,14 +210,14 @@ export class RegisterCenterComponent implements OnInit {
         && this.center.address.city != '' && this.center.address.state != '' 
         && this.center.address.street != ''
         && this.center.workTime.startTime != '' 
-        && this.center.workTime.endTime != '';
- /*        this.medicalStaff.email != '' && this.medicalStaff.password != ''
+        && this.center.workTime.endTime != '' 
+         &&this.medicalStaff.email != '' && this.medicalStaff.password != ''
          && this.medicalStaff.name != '' && this.medicalStaff.surname != '' 
          && this.medicalStaff.address.city != '' && this.medicalStaff.address.state != '' 
          && this.medicalStaff.address.street != '' && this.medicalStaff.phoneNum != '' 
          && this.medicalStaff.identityNumber.length === 13 && this.medicalStaff.profession != ''
          && this.confirmationPass != '';
-*/
+
   }
 
   private isWorkTimeValid(): boolean{
@@ -197,6 +240,10 @@ export class RegisterCenterComponent implements OnInit {
     return this.medicalStaff.password === this.confirmationPass;
   }
 
+  private setMedicalStaff(): void{
+     this.medicalStaff.facilityInfo = this.center.name
+     this.medicalStaff.profession = "Center admin"
+  }
 
 }
 
@@ -205,4 +252,4 @@ export class RegisterCenterComponent implements OnInit {
     throw new Error('Function not implemented.');
   }
   
-
+  

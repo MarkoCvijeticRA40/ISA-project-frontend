@@ -21,6 +21,10 @@ export class UserService {
     return this.http.post<any>(this.apiHost + 'medicalstaff/registerStaff', staff, {headers: this.headers});
   }
 
+  registerSystemAdministrator(staff: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'administrators/registerSystemAdministrator', staff, {headers: this.headers});
+  }
+
   
 
   find(email: string): Observable<any>{

@@ -30,6 +30,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
+import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
 
 
 
@@ -37,6 +38,7 @@ import { RegisterCenterComponent } from './register-center/register-center.compo
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register/user', component: RegisterUserComponent},
+  { path: 'register/systemAdministrator', component: RegisterSystemAdministratorComponent},
   { path: 'registeredUsers', component: RegisteredUsersComponent}
   
 ];
@@ -57,7 +59,8 @@ const routes: Routes = [
     UserLoginComponent,
     DonorPollComponent,
     RegisteredUsersComponent,
-    RegisterCenterComponent
+    RegisterCenterComponent,
+    RegisterSystemAdministratorComponent
   ],
   imports: [
     CommonModule,

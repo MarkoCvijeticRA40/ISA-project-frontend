@@ -86,6 +86,7 @@ export class RegisterCenterComponent implements OnInit {
   
   public registerCenter() {
       
+
       this.setMedicalStaff();
 
       
@@ -96,17 +97,21 @@ export class RegisterCenterComponent implements OnInit {
         this.userService.registerCenterAdministrator(this.medicalStaff).subscribe(res => {
         this.userService.findAdministrator(this.medicalStaff.email).subscribe(res => {
         this.center.medicalStaff.push(res);
+
         this.centerService.registerCenter(this.center).subscribe(res => {
+    
           alert("You have registered center successfully!");
         })
         
         });
         
         });
+    
       }else{
         alert("End work time must be greater than start work time!");
       }
     }
+    
     
 
   }

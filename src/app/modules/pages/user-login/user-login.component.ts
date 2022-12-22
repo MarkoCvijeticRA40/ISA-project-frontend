@@ -19,8 +19,16 @@ export class UserLoginComponent implements OnInit {
 
   public login() {
     this.userService.login(this.data).subscribe(res => {
-      alert(res.data);
+      console.log(res);
+      this.userService.getMyInfo().subscribe(ress => {
+        console.log(ress);
+        alert("Logged in!");
+      });
+    },
+    error => {
+      alert("Incorrect username or password.");
     })
+      
   }
 
 }

@@ -14,6 +14,8 @@ export class RegisteredUser {
     role: any = null;
     address: Address = new Address();
     gender: Gender = 0;
+    enabled: boolean = false;
+    lastPassworResetDate: Date = new Date();
     points: number = 0;
     numOfPenalities: number = 0;
     userCategory: any = null;
@@ -36,6 +38,8 @@ export class RegisteredUser {
             this.role = obj.role;
             this.address = obj.address;
             this.gender = obj.gender;  
+            this.enabled = obj.enabled;
+            this.lastPassworResetDate = obj.lastPassworResetDate;
             this.points = obj.points;
             this.numOfPenalities = obj.numOfPenalities;
             this.userCategory = obj.userCategory;

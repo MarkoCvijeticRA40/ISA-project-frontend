@@ -8,7 +8,7 @@
     <div>
         <mat-form-field id="mat1">
             <mat-label>Start Date:</mat-label>
-            <input matInput [matDatepicker]="picker" [min]="startDate" placeholder="Choose a date">
+            <input [(ngModel)]="freeAppointment.date" matInput [matDatepicker]="picker" [min]="startDate" placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker id="picker" #picker></mat-datepicker>
         </mat-form-field>
@@ -36,7 +36,7 @@
         </mat-form-field>
     </div>
 
-    <button mat-stroked-button>
+    <button mat-stroked-button (click)="getByDate()">
         Submit
     </button>
 </div>
@@ -49,13 +49,12 @@
             <th>Average grade:</th>
        </tr>
 
-       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+       <tr *ngFor="let freeapp of freeAppointmentsDataSource">
+        <td>{{freeapp.center.name}}</td>
+        <td>{{freeapp.center.address.city}}</td>
+        <td>{{freeapp.center.avgGrade}}</td>
+        <td><button (click)="createScheduledAppointment(freeapp)">Schedule</button></td>
        </tr>
-        
-
     </table>
 </div>
 

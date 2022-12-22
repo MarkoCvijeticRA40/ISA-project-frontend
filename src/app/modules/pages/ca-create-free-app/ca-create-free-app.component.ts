@@ -110,6 +110,7 @@ export class CaCreateFreeAppComponent implements OnInit {
   public createFreeAppointment() {
     this.freeAppointment.date.setHours(1);
     this.freeAppointment.date.setSeconds(0);
+    this.freeAppointment.date.setMilliseconds(0);
     this.freeAppointment.center = this.centerForFreeApp;
     this.freeAppointment.date.setHours(this.hour);
     this.freeAppointment.date.setMinutes(this.minute);

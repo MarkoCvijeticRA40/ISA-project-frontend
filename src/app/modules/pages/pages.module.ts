@@ -9,6 +9,12 @@ import { RegisteredUsersComponent } from './registered-users/registered-users.co
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+/*
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { RouterModule, Routes } from "@angular/router";
+import { RegisterCenterComponent } from './register-center/register-center.component';
+*/
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
@@ -24,6 +30,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
+import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
+import { ChangePasswordSystemAdministratorComponent } from './change-password-system-administrator/change-password-system-administrator.component';
 
 
 
@@ -31,6 +39,7 @@ import { RegisterCenterComponent } from './register-center/register-center.compo
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register/user', component: RegisterUserComponent},
+  { path: 'register/systemAdministrator', component: RegisterSystemAdministratorComponent},
   { path: 'registeredUsers', component: RegisteredUsersComponent}
   
 ];
@@ -41,6 +50,8 @@ const routes: Routes = [
     HomeComponent,
     UpdateCenterComponent,
     RegisterUserComponent,
+    RegisteredUsersComponent,
+    RegisterCenterComponent,
     ShowProfileComponent,
     EditProfileComponent,
     ShowAdministratorProfileComponent,
@@ -49,7 +60,9 @@ const routes: Routes = [
     UserLoginComponent,
     DonorPollComponent,
     RegisteredUsersComponent,
-    RegisterCenterComponent
+    RegisterCenterComponent,
+    RegisterSystemAdministratorComponent,
+    ChangePasswordSystemAdministratorComponent
   ],
   imports: [
     CommonModule,

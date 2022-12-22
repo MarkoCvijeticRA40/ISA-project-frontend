@@ -12,6 +12,9 @@ import { CaCreateFreeAppComponent } from "./modules/pages/ca-create-free-app/ca-
 import { UserLoginComponent } from "./modules/pages/user-login/user-login.component";
 import { RegisterCenterComponent } from "./modules/pages/register-center/register-center.component";
 import { RegisteredUsersComponent } from './modules/pages/registered-users/registered-users.component';
+import { RegisterSystemAdministratorComponent } from './modules/pages/register-system-administrator/register-system-administrator.component';
+import { ChangePasswordSystemAdministratorComponent } from './modules/pages/change-password-system-administrator/change-password-system-administrator.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,7 +28,10 @@ const routes: Routes = [
   { path: 'poll', component: DonorPollComponent},
   { path: 'register/center', component: RegisterCenterComponent},
   { path: 'registeredUsers', component: RegisteredUsersComponent},
-  { path: 'admin/center-update', component: UpdateCenterComponent }
+  { path: 'register/systemAdministrator', component: RegisterSystemAdministratorComponent},
+  { path: 'admin/center-update', component: UpdateCenterComponent },
+  { path: 'change/saPassword/:id', component: ChangePasswordSystemAdministratorComponent }
+  
 ];
 
 @NgModule({

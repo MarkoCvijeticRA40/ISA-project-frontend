@@ -1,5 +1,6 @@
 <div>
     <form class="container">
+      <h1 style="color: white;">Center :</h1>
         <mat-form-field class="example-full-width" style="color: white;">
           <input matInput placeholder="Name"  [formControl]="requiredNameCenterControl"
                  [errorStateMatcher]="matcher" [(ngModel)]="center.name">
@@ -16,39 +17,39 @@
           </mat-form-field><br>
   
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="City" [formControl]="requiredCityControl"
+            <input matInput placeholder="City" [formControl]="requiredCenterCityControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="center.address.city">
-            <mat-error *ngIf="requiredCityControl.hasError('required')">
+            <mat-error *ngIf="requiredCenterCityControl.hasError('required')">
                 City is <strong>required</strong>
             </mat-error>
           </mat-form-field><br>
   
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="State" [formControl]="requiredStateControl"
+            <input matInput placeholder="State" [formControl]="requiredCenterStateControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="center.address.state">
-            <mat-error *ngIf="requiredStateControl.hasError('required')">
+            <mat-error *ngIf="requiredCenterStateControl.hasError('required')">
                 State is <strong>required</strong>
             </mat-error>
           </mat-form-field><br>
     
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Street" [formControl]="requiredStreetControl"
+            <input matInput placeholder="Street" [formControl]="requiredCenterStreetControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="center.address.street">
-            <mat-error *ngIf="requiredStreetControl.hasError('required')">
+            <mat-error *ngIf="requiredCenterStreetControl.hasError('required')">
                 Street is <strong>required</strong>
             </mat-error>
           </mat-form-field><br>
    
           <mat-form-field class="example-full-width" style="color: white;">
-            <input matInput placeholder="Number of home" [formControl]="requiredNumberControl"
+            <input matInput placeholder="Number of home" [formControl]="requiredCenterNumberControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="center.address.number">
-            <mat-error *ngIf="requiredNumberControl.hasError('required')">
+            <mat-error *ngIf="requiredCenterNumberControl.hasError('required')">
                 Number of home is <strong>required</strong>
             </mat-error>
           </mat-form-field><br>
 
 
-         <mat-form-field >
+         <mat-form-field appearance="fill">
             <mat-label>Start work time</mat-label>
             <mat-select [formControl]="requireStartWorkTimeControl"  [errorStateMatcher]="matcher" [(ngModel)]="center.workTime.startTime" >
                 <mat-option *ngFor="let time of times" [value]="time.value" >
@@ -61,7 +62,7 @@
             
         </mat-form-field><br>
         
-        <mat-form-field >
+        <mat-form-field appearance="fill" >
             <mat-label>End work time</mat-label>
             <mat-select [formControl]="requireEndWorkTimeControl"  [errorStateMatcher]="matcher" [(ngModel)]="center.workTime.endTime" >
                 <mat-option *ngFor="let time of times" [value]="time.value" >
@@ -74,7 +75,110 @@
             
         </mat-form-field><br>
         
-        
+        <h1 style="color: white;">Center admin :</h1>
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Email"  [formControl]="emailFormControl"
+                 [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.email">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field><br>
+     
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Password" type="password" [formControl]="requiredPasswordControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.password">
+            <mat-error *ngIf="requiredPasswordControl.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Confirm password" type="password" [formControl]="requiredConfirmationPasswordControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="confirmationPass">
+            <mat-error *ngIf="requiredConfirmationPasswordControl.hasError('required')">
+                Confirmation password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Name" [formControl]="requiredNameControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.name">
+            <mat-error *ngIf="requiredNameControl.hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Surname" [formControl]="requiredSurnameControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.surname">
+            <mat-error *ngIf="requiredSurnameControl.hasError('required')">
+                Surname is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="City" [formControl]="requiredCityControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.address.city">
+            <mat-error *ngIf="requiredCityControl.hasError('required')">
+                City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="State" [formControl]="requiredStateControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.address.state">
+            <mat-error *ngIf="requiredStateControl.hasError('required')">
+                State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Street" [formControl]="requiredStreetControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.address.street">
+            <mat-error *ngIf="requiredStreetControl.hasError('required')">
+                Street is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Number of home" [formControl]="requiredNumberControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.address.number">
+            <mat-error *ngIf="requiredNumberControl.hasError('required')">
+                Number of home is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Phone number" [formControl]="requiredPhoneControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.phoneNum">
+            <mat-error *ngIf="requiredPhoneControl.hasError('required')">
+                Phone number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Identity number" [formControl]="requiredIDControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="medicalStaff.identityNumber">
+            <mat-error *ngIf="requiredIDControl.hasError('required')">
+                Identity number is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="requiredIDControl.hasError('pattern')">
+                Identity number must have <strong>13 digits</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select [(ngModel)]="medicalStaff.gender" [ngModelOptions]="{standalone: true}" >
+                <mat-option *ngFor="let gender of genders" [value]="gender.value" >
+                    {{gender.viewValue}}
+                </mat-option>
+            </mat-select>
+         
+        </mat-form-field><br>      
         <button mat-stroked-button (click)="registerCenter()"> 
             Submit
         </button>

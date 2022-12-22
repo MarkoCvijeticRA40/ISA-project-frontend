@@ -1,6 +1,5 @@
 import { Address } from "./address.model";
 import { WorkTime } from "./work-time.model";
-import { Address } from "./address.model";
 
 export class Center {
     id: number = 0;

@@ -17,6 +17,7 @@ export class SystemAdministrator {
     points: number = 0;
     numOfPenalities: number = 0;
     userCategory: any = null;
+    isFirstLogin: boolean = false;
   //  visitedCenters: any[] = [];
  //   scheduledAppointments: any[] = [];
 //    performedAppointments: any[] = [];
@@ -38,6 +39,7 @@ export class SystemAdministrator {
             this.points = obj.points;
             this.numOfPenalities = obj.numOfPenalities;
             this.userCategory = obj.userCategory;
+            this.isFirstLogin = obj.isFirstLogin
     //        this.visitedCenters  = obj.visitedCenters;
    //         this.scheduledAppointments = obj.scheduledAppointments;
   //          this.performedAppointments = obj.performedAppointments;

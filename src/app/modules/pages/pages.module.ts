@@ -31,6 +31,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
 import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
+import { ChangePasswordSystemAdministratorComponent } from './change-password-system-administrator/change-password-system-administrator.component';
 
 
 
@@ -60,7 +61,8 @@ const routes: Routes = [
     DonorPollComponent,
     RegisteredUsersComponent,
     RegisterCenterComponent,
-    RegisterSystemAdministratorComponent
+    RegisterSystemAdministratorComponent,
+    ChangePasswordSystemAdministratorComponent
   ],
   imports: [
     CommonModule,

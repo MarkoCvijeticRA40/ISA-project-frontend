@@ -128,6 +128,7 @@ export class RegisterSystemAdministratorComponent implements OnInit {
 
   
   private setSystemAdministrator(): void{
+    this.user.isFirstLogin = true;
     this.user.profession = "System admin"
  }
 

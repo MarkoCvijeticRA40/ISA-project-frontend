@@ -21,8 +21,8 @@ export class UserService {
     return this.http.post<any>(this.apiHost + 'medicalstaff/registerStaff', staff, {headers: this.headers});
   }
 
-  registerSystemAdministrator(staff: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'administrators/registerSystemAdministrator', staff, {headers: this.headers});
+  registerSystemAdministrator(systemAdministrator : any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'administrators/registerSystemAdministrator', systemAdministrator , {headers: this.headers});
   }
 
   
@@ -35,13 +35,23 @@ export class UserService {
     return this.http.get<any>(this.apiHost + "medicalstaff/" + email, { headers : this.headers});
   }
 
+  findSystemAdministrator(id: any): Observable<any>{
+    return this.http.get<any>(this.apiHost + "administrators/id/" + id, { headers : this.headers});
+  }
+
   save(user: any): Observable<any>{
     return this.http.put<any>(this.apiHost + 'registeredusers/saveChanges' , user , { headers : this.headers });          
   }
   
+  saveSystemAdministrator(systemAdministrator: any): Observable<any>{
+    return this.http.put<any>(this.apiHost + 'administrators/saveChanges' , systemAdministrator , { headers : this.headers });          
+  }
+
+
   saveAdministrator(user: any): Observable<any>{
     return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , user , { headers : this.headers });          
   }
+
 
   login(data: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'login', data, {headers: this.headers});

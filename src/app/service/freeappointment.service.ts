@@ -16,4 +16,13 @@ export class FreeappointmentService {
   createFreeAppointment(freeappointment:Freeapointment): Observable<Freeapointment> {
     return this.http.post<Freeapointment>(this.apiHost + "freeapp/create", freeappointment, {headers: this.headers});
   }
+
+  getByDate(dateString : String): Observable<Freeapointment[]>{
+    return this.http.get<Freeapointment[]>(this.apiHost + "freeapp/searchByDate/" + dateString, {headers: this.headers});
+  }
+
+
+
+
+
 }

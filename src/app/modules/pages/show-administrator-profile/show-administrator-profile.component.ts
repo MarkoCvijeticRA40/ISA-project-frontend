@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegisteredUser } from 'src/app/model/registered-user.model';
-import { UserService } from 'src/app/service/user.service';
+import { MedicalStaff } from 'src/app/model/medical-staff.model';
+import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 
 @Component({
   selector: 'app-show-administrator-profile',
@@ -10,18 +10,17 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ShowAdministratorProfileComponent implements OnInit {
 
-  public user: RegisteredUser = new RegisteredUser();
+  public medicalStaff: MedicalStaff = new MedicalStaff();
   
-  constructor(private userService: UserService,private router : Router) { }
+  constructor(private service: MedicalstaffService,private router : Router) { }
 
   public ChangePage(){
     this.router.navigate(['/editadminprofile']);
   }
 
   ngOnInit(): void {
-    this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
-      this.user = res;
+    this.service.find("milan@gmail.com").subscribe(res => {
+      this.medicalStaff = res;
     })
   }
-
 }

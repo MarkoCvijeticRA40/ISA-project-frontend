@@ -28,14 +28,8 @@ export class UserService {
     return this.http.post<any>(this.apiHost + 'administrators/registerSystemAdministrator', systemAdministrator , {headers: this.headers});
   }
 
-  
-
   find(email: string): Observable<any>{
     return this.http.get<any>(this.apiHost + "registeredusers/" + email, { headers : this.headers});
-  }
-
-  findAdministrator(email: string): Observable<any>{
-    return this.http.get<any>(this.apiHost + "medicalstaff/" + email, { headers : this.headers});
   }
 
   findSystemAdministrator(id: any): Observable<any>{
@@ -49,12 +43,6 @@ export class UserService {
   saveSystemAdministrator(systemAdministrator: any): Observable<any>{
     return this.http.put<any>(this.apiHost + 'administrators/saveChanges' , systemAdministrator , { headers : this.headers });          
   }
-
-
-  saveAdministrator(user: any): Observable<any>{
-    return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , user , { headers : this.headers });          
-  }
-
 
   login(data: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'auth/login', data, {headers: this.headers})

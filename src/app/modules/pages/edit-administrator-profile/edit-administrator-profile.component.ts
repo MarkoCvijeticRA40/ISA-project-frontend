@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisteredUser } from 'src/app/model/registered-user.model';
-import { UserService } from 'src/app/service/user.service';
+import { MedicalStaff } from 'src/app/model/medical-staff.model';
+import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 
 @Component({
   selector: 'app-edit-administrator-profile',
@@ -11,25 +11,26 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class EditAdministratorProfileComponent implements OnInit {
 
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private service: MedicalstaffService,private router: Router) { }
 
-  public user: RegisteredUser = new RegisteredUser();
+  public medicalStaff: MedicalStaff = new MedicalStaff();
   
-  public saveUser(){
+  public save(){
     if (this.isInputValid()) {  
-    this.userService.saveAdministrator(this.user).subscribe(res => {
+    this.service.save(this.medicalStaff).subscribe(res => {
         alert("You have changed successfully!");
           this.router.navigate(['/adminprofile']);
     })
   }
-  else{
+  
+  else {
     alert("You have not entered the data in the correct format!");
-  }
+    }
   }
   
   ngOnInit(): void {
-    this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
-      this.user = res;
+    this.service.find("milan@gmail.com").subscribe(res => {
+      this.medicalStaff = res;
     })
   }
 
@@ -59,10 +60,9 @@ export class EditAdministratorProfileComponent implements OnInit {
   ]);
 
   private isInputValid(): boolean {
-    return this.user.email != '' && this.user.password != ''
-         && this.user.name != '' && this.user.surname != '' 
-         && this.user.address.city != '' && this.user.address.state != '' 
-         && this.user.address.street != '' && this.user.phoneNum != '' && this.user.address.city != '' && this.user.address.number != ''
+    return this.medicalStaff.email != '' && this.medicalStaff.password != ''
+         && this.medicalStaff.name != '' && this.medicalStaff.surname != '' 
+         && this.medicalStaff.address.city != '' && this.medicalStaff.address.state != '' 
+         && this.medicalStaff.address.street != '' && this.medicalStaff.phoneNum != '' && this.medicalStaff.address.city != '' && this.medicalStaff.address.number != ''
   }
-
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Center } from 'src/app/model/center.model';
 import { Freeapointment } from 'src/app/model/freeapointment.model';
-import { Medicalstaff } from 'src/app/model/medicalstaff.model';
 import { FreeappointmentService } from 'src/app/service/freeappointment.service';
-import { UserService } from 'src/app/service/user.service';
 import { Address } from 'src/app/model/address.model';
 import { CenterService } from 'src/app/service/center.service';
+import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
+import { MedicalStaff } from 'src/app/model/medical-staff.model';
 
 @Component({
   selector: 'app-ca-create-free-app',
@@ -24,7 +24,7 @@ export class CaCreateFreeAppComponent implements OnInit {
 
   public freeAppointment : Freeapointment = new Freeapointment();
   
-  public medicalStaff : Medicalstaff = new Medicalstaff();
+  public medicalStaff : MedicalStaff = new MedicalStaff();
 
   public centerForFreeApp : Center = new Center();
 
@@ -70,7 +70,7 @@ export class CaCreateFreeAppComponent implements OnInit {
     {value: 60, viewValue: "60"},
   ];
   
-  constructor(private freeAppointmentService: FreeappointmentService,private userService: UserService,private centerService : CenterService) 
+  constructor(private freeAppointmentService: FreeappointmentService,private service: MedicalstaffService,private centerService : CenterService) 
   { 
     this.startDate.setDate(this.startDate.getDate() + 1);
   }
@@ -133,7 +133,7 @@ export class CaCreateFreeAppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
+    this.service.find("milan@gmail.com").subscribe(res => {
       this.medicalStaff = res;  
         this.freeAppointment.medicalStaff = this.medicalStaff; 
     })

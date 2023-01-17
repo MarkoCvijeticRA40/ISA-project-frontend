@@ -106,12 +106,12 @@ export class RuCreateAppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
+    /*this.userService.findAdministrator("milan@gmail.com").subscribe(res => {
       this.medicalStaff = res;  
         this.freeAppointment.medicalStaff = this.medicalStaff; 
     })  
     this.centerService.getCenterByMedicalStaffId(1).subscribe(res => {
       this.center = res;   
-    })
+    })*/
   }
 }

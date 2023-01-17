@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { CdkTableModule } from "@angular/cdk/table";
 import { TokenInterceptor } from "./interceptor/token-interceptor";
+import { RegisteredUserModule } from "./modules/registered-user/registered-user.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TokenInterceptor } from "./interceptor/token-interceptor";
     PagesModule,
     MatTableModule,
     CdkTableModule,
+    RegisteredUserModule
   ],
   providers: [
     {

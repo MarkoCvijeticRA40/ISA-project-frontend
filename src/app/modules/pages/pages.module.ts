@@ -23,7 +23,6 @@ import { ShowRegisterUserProfileComponent } from './show-register-user-profile/s
 import { EditRegisterUserProfileComponent } from './edit-register-user-profile/edit-register-user-profile.component';
 import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
 import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
-import { CaCreateFreeAppComponent } from './ca-create-free-app/ca-create-free-app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DonorPollComponent } from './donor-poll/donor-poll.component';
 import { MatRadioModule } from '@angular/material/radio';
@@ -54,7 +53,6 @@ const routes: Routes = [
     EditRegisterUserProfileComponent,
     ShowAdministratorProfileComponent,
     EditAdministratorProfileComponent,
-    CaCreateFreeAppComponent,
     UserLoginComponent,
     DonorPollComponent,
     RegisteredUsersComponent,

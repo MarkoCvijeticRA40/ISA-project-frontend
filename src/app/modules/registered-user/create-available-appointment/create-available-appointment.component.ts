@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Address } from 'src/app/model/address.model';
 import { Center } from 'src/app/model/center.model';
 import { Freeapointment } from 'src/app/model/freeapointment.model';
-import { FreeappointmentService } from 'src/app/service/freeappointment.service';
-import { Address } from 'src/app/model/address.model';
-import { CenterService } from 'src/app/service/center.service';
-import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 import { MedicalStaff } from 'src/app/model/medical-staff.model';
+import { CenterService } from 'src/app/service/center.service';
+import { FreeappointmentService } from 'src/app/service/freeappointment.service';
+import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 
 @Component({
-  selector: 'app-ca-create-free-app',
-  templateUrl: './ca-create-free-app.component.html',
-  styleUrls: ['./ca-create-free-app.component.css']
+  selector: 'app-create-available-appointment',
+  templateUrl: './create-available-appointment.component.html',
+  styleUrls: ['./create-available-appointment.component.css']
 })
-export class CaCreateFreeAppComponent implements OnInit {
+export class CreateAvailableAppointmentComponent implements OnInit {
 
   startDate : Date = new Date();
 

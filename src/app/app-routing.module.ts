@@ -6,7 +6,6 @@ import { UpdateCenterComponent } from "./modules/pages/update-center/update-cent
 import { RegisterUserComponent } from "./modules/pages/register-user/register-user.component";
 import { ShowAdministratorProfileComponent } from "./modules/pages/show-administrator-profile/show-administrator-profile.component";
 import { EditAdministratorProfileComponent } from "./modules/pages/edit-administrator-profile/edit-administrator-profile.component";
-import { CaCreateFreeAppComponent } from "./modules/pages/ca-create-free-app/ca-create-free-app.component";
 import { UserLoginComponent } from "./modules/pages/user-login/user-login.component";
 import { RegisterCenterComponent } from "./modules/pages/register-center/register-center.component";
 import { RegisteredUsersComponent } from './modules/pages/registered-users/registered-users.component';
@@ -15,6 +14,7 @@ import { RegisterSystemAdministratorComponent } from './modules/pages/register-s
 import { ChangePasswordSystemAdministratorComponent } from './modules/pages/change-password-system-administrator/change-password-system-administrator.component';
 import { ShowRegisterUserProfileComponent } from "./modules/pages/show-register-user-profile/show-register-user-profile.component";
 import { EditRegisterUserProfileComponent } from "./modules/pages/edit-register-user-profile/edit-register-user-profile.component";
+import { CreateAvailableAppointmentComponent } from "./modules/registered-user/create-available-appointment/create-available-appointment.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'editadminprofile',component: EditAdministratorProfileComponent},
   { path: 'userprofile', component : ShowRegisterUserProfileComponent},
   { path: 'edituserprofile', component: EditRegisterUserProfileComponent},
-  { path: 'cacreateapp',component: CaCreateFreeAppComponent},
   { path: 'rucreateapp',component: RuCreateAppComponent},
   { path: 'login', component: UserLoginComponent},
   { path: 'poll', component: DonorPollComponent},
@@ -31,7 +30,8 @@ const routes: Routes = [
   { path: 'registeredUsers', component: RegisteredUsersComponent},
   { path: 'register/systemAdministrator', component: RegisterSystemAdministratorComponent},
   { path: 'admin/center-update', component: UpdateCenterComponent },
-  { path: 'change/saPassword/:id', component: ChangePasswordSystemAdministratorComponent }
+  { path: 'change/saPassword/:id', component: ChangePasswordSystemAdministratorComponent },
+  { path: 'create/available/appointment', component: CreateAvailableAppointmentComponent }
   
 ];
 

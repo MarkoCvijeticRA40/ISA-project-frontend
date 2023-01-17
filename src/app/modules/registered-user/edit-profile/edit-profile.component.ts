@@ -5,11 +5,11 @@ import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-edit-user-profile',
-  templateUrl: './edit-user-profile.component.html',
-  styleUrls: ['./edit-user-profile.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
-export class EditUserProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
 
   constructor(private service: UserService,private router: Router) { }
 
@@ -19,7 +19,7 @@ export class EditUserProfileComponent implements OnInit {
     if (this.isInputValid()) {  
     this.service.save(this.user).subscribe(res => {
         alert("You have changed successfully!");
-          this.router.navigate(['/userprofile']);
+          this.router.navigate(['/user/profile']);
     })
   }
   
@@ -67,3 +67,4 @@ export class EditUserProfileComponent implements OnInit {
   }
 
 }
+

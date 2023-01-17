@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RuCreateAppComponent } from './ru-create-app.component';
+import { EditProfileComponent } from './edit-profile.component';
 
-describe('RuCreateAppComponent', () => {
-  let component: RuCreateAppComponent;
-  let fixture: ComponentFixture<RuCreateAppComponent>;
+describe('EditProfileComponent', () => {
+  let component: EditProfileComponent;
+  let fixture: ComponentFixture<EditProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RuCreateAppComponent ]
+      declarations: [ EditProfileComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RuCreateAppComponent);
+    fixture = TestBed.createComponent(EditProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

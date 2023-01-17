@@ -19,7 +19,7 @@ export class EditProfileComponent implements OnInit {
     if (this.isInputValid()) {  
     this.service.save(this.medicalStaff).subscribe(res => {
         alert("You have changed successfully!");
-          this.router.navigate(['/adminprofile']);
+          this.router.navigate(['/admin/profile']);
     })
   }
   

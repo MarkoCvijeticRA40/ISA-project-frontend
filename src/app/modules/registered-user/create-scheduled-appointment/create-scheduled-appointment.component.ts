@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { scheduled } from 'rxjs';
 import { Center } from 'src/app/model/center.model';
 import { DonorPoll } from 'src/app/model/donor-poll.model';
 import { Freeapointment } from 'src/app/model/freeapointment.model';
@@ -12,11 +10,11 @@ import { ScheduledappointmentService } from 'src/app/service/scheduledappointmen
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-ru-create-app',
-  templateUrl: './ru-create-app.component.html',
-  styleUrls: ['./ru-create-app.component.css']
+  selector: 'app-create-scheduled-appointment',
+  templateUrl: './create-scheduled-appointment.component.html',
+  styleUrls: ['./create-scheduled-appointment.component.css']
 })
-export class RuCreateAppComponent implements OnInit {
+export class CreateScheduledAppointmentComponent implements OnInit {
 
   startDate : Date = new Date();
 

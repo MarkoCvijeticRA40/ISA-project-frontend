@@ -14,9 +14,9 @@ export class MedicalStaff {
     role: any = null;
     address: Address = new Address();
     gender: Gender = 0;
+    enabled : any;
+    lastPasswordResetDate : any;
  
-
-
     public constructor(obj?: any) {
         if (obj) {
             this.id = obj.id;
@@ -30,7 +30,9 @@ export class MedicalStaff {
             this.facilityInfo = obj.facilityInfo;
             this.role = obj.role;
             this.address = obj.address;
-            this.gender = obj.gender;  
+            this.gender = obj.gender;
+            this.enabled = obj.enabled;
+            this.lastPasswordResetDate = obj.lastPasswordResetDate
 
         }
     }

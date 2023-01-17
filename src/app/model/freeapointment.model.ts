@@ -1,5 +1,4 @@
 import { Center } from "./center.model";
-import { Medicalstaff } from "./medicalstaff.model";
 
 export class Freeapointment {
 

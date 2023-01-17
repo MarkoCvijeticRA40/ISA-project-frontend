@@ -1,60 +1,57 @@
-<h2>Welcome dear administrator {{user.name}} {{user.surname}}</h2>
-
 <table id="table1">
   <tr>
     <th>Id:</th>
-    <td>{{user.identityNumber}}</td>
+    <td>{{medicalStaff.identityNumber}}</td>
   </tr>
   
   <tr>
     <th>Name:</th>
-    <td><input type="text" [(ngModel)]="user.name"/></td>
+    <td><input type="text" [(ngModel)]="medicalStaff.name"/></td>
   </tr>
 
   <tr>
     <th>Surname:</th>
-    <td><input type="text" [(ngModel)]="user.surname"/></td>
+    <td><input type="text" [(ngModel)]="medicalStaff.surname"/></td>
   </tr>
   
   <tr>
     <th>Email:</th>
-    <td>{{user.email}}</td>
+    <td>{{medicalStaff.email}}</td>
   </tr>
 
   <tr>
-    <th>Password</th>
-    <td><input type="text" [(ngModel)]="user.password"/></td>
+    <th>Password:</th>
+    <td><input type="text" [(ngModel)]="medicalStaff.password"/></td>
   </tr>
 
   <tr>
-    <th>PhoneNumber</th>
-    <td><input type="text" [(ngModel)]="user.phoneNum"/></td>
+    <th>PhoneNumber:</th>
+    <td><input type="text" [(ngModel)]="medicalStaff.phoneNum"/></td>
   </tr>
 
   <tr>
-    <th>Street</th>
-    <td><input type="text" [(ngModel)]="user.address.street"/></td>
+    <th>Street:</th>
+    <td><input type="text" [(ngModel)]="medicalStaff.address.street"/></td>
   </tr>
 
   <tr>
-    <th>Number</th>
-    <td><input type="text" [(ngModel)]="user.address.number"/></td>
+    <th>Number:</th>
+    <td><input type="text" [(ngModel)]="medicalStaff.address.number"/></td>
   </tr>
 
   <tr>
-    <th>State</th>
-    <td><input type="text" [(ngModel)]="user.address.state"/></td>
+    <th>State:</th>
+    <td><input type="text" [(ngModel)]="medicalStaff.address.state"/></td>
   </tr>
 
   <tr>
-    <th>City</th>
-    <td><input type="text" [(ngModel)]="user.address.city"/></td>
+    <th>City:</th>
+    <td><input type="text" [(ngModel)]="medicalStaff.address.city"/></td>
   </tr>
 
   <tr>
     <th>Save</th>
-    <td><button type="submit" (click)="saveUser()">Save</button></td>
+    <td><button type="submit" (click)="save()">Save</button></td>
   </tr>
-
 </table>
   

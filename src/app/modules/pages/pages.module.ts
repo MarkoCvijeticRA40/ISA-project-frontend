@@ -19,8 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
 */
-import { ShowProfileComponent } from './show-profile/show-profile.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ShowRegisterUserProfileComponent } from './show-register-user-profile/show-register-user-profile.component';
+import { EditRegisterUserProfileComponent } from './edit-register-user-profile/edit-register-user-profile.component';
 import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
 import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
 import { CaCreateFreeAppComponent } from './ca-create-free-app/ca-create-free-app.component';
@@ -50,8 +50,8 @@ const routes: Routes = [
     RegisterUserComponent,
     RegisteredUsersComponent,
     RegisterCenterComponent,
-    ShowProfileComponent,
-    EditProfileComponent,
+    ShowRegisterUserProfileComponent,
+    EditRegisterUserProfileComponent,
     ShowAdministratorProfileComponent,
     EditAdministratorProfileComponent,
     CaCreateFreeAppComponent,

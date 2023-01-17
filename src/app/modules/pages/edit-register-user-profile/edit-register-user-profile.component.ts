@@ -5,30 +5,31 @@ import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-edit-profile',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  selector: 'app-edit-register-user-profile',
+  templateUrl: './edit-register-user-profile.component.html',
+  styleUrls: ['./edit-register-user-profile.component.css']
 })
-export class EditProfileComponent implements OnInit {
+export class EditRegisterUserProfileComponent implements OnInit {
 
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private service: UserService,private router: Router) { }
 
   public user: RegisteredUser = new RegisteredUser();
   
-  public saveUser(){
+  public save(){
     if (this.isInputValid()) {  
-    this.userService.save(this.user).subscribe(res => {
+    this.service.save(this.user).subscribe(res => {
         alert("You have changed successfully!");
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/userprofile']);
     })
   }
-  else{
+  
+  else {
     alert("You have not entered the data in the correct format!");
-  }
+    }
   }
   
   ngOnInit(): void {
-    this.userService.find("marko@gmail.com").subscribe(res => {
+    this.service.find("marko@gmail.com").subscribe(res => {
       this.user = res;
     })
   }
@@ -64,5 +65,4 @@ export class EditProfileComponent implements OnInit {
          && this.user.address.city != '' && this.user.address.state != '' 
          && this.user.address.street != '' && this.user.phoneNum != '' && this.user.address.city != '' && this.user.address.number != ''
   }
-
 }

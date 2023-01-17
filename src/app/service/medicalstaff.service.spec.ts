@@ -1,7 +1,16 @@
-import { Medicalstaff } from './medicalstaff.service';
+import { TestBed } from '@angular/core/testing';
 
-describe('Medicalstaff', () => {
-  it('should create an instance', () => {
-    expect(new Medicalstaff()).toBeTruthy();
+import { MedicalstaffService } from './medicalstaff.service';
+
+describe('MedicalstaffService', () => {
+  let service: MedicalstaffService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(MedicalstaffService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 });

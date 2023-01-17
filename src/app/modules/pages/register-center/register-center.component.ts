@@ -95,7 +95,7 @@ export class RegisterCenterComponent implements OnInit {
        if(this.isWorkTimeValid()){
       
         this.userService.registerCenterAdministrator(this.medicalStaff).subscribe(res => {
-        this.userService.findAdministrator(this.medicalStaff.email).subscribe(res => {
+        this.userService.find(this.medicalStaff.email).subscribe(res => {
         this.center.medicalStaff.push(res);
 
         this.centerService.registerCenter(this.center).subscribe(res => {

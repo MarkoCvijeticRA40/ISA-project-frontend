@@ -4,8 +4,6 @@ import { DonorPollComponent } from "./modules/pages/donor-poll/donor-poll.compon
 import { HomeComponent } from "./modules/pages/home/home.component";
 import { UpdateCenterComponent } from "./modules/pages/update-center/update-center.component";
 import { RegisterUserComponent } from "./modules/pages/register-user/register-user.component";
-import { ShowAdministratorProfileComponent } from "./modules/pages/show-administrator-profile/show-administrator-profile.component";
-import { EditAdministratorProfileComponent } from "./modules/pages/edit-administrator-profile/edit-administrator-profile.component";
 import { UserLoginComponent } from "./modules/pages/user-login/user-login.component";
 import { RegisterCenterComponent } from "./modules/pages/register-center/register-center.component";
 import { RegisteredUsersComponent } from './modules/pages/registered-users/registered-users.component';
@@ -14,13 +12,16 @@ import { RegisterSystemAdministratorComponent } from './modules/pages/register-s
 import { ChangePasswordSystemAdministratorComponent } from './modules/pages/change-password-system-administrator/change-password-system-administrator.component';
 import { ShowRegisterUserProfileComponent } from "./modules/pages/show-register-user-profile/show-register-user-profile.component";
 import { EditRegisterUserProfileComponent } from "./modules/pages/edit-register-user-profile/edit-register-user-profile.component";
-import { CreateAvailableAppointmentComponent } from "./modules/registered-user/create-available-appointment/create-available-appointment.component";
+import { CreateAvailableAppointmentComponent } from "./modules/medical-staff/create-available-appointment/create-available-appointment.component";
+import { EditProfileComponent } from "./modules/medical-staff/edit-profile/edit-profile.component";
+import { ShowProfileComponent } from "./modules/medical-staff/show-profile/show-profile.component";
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register/user', component: RegisterUserComponent},
-  { path: 'adminprofile',component: ShowAdministratorProfileComponent},
-  { path: 'editadminprofile',component: EditAdministratorProfileComponent},
+  { path: 'adminprofile',component: ShowProfileComponent},
+  { path: 'editadminprofile',component: EditProfileComponent},
   { path: 'userprofile', component : ShowRegisterUserProfileComponent},
   { path: 'edituserprofile', component: EditRegisterUserProfileComponent},
   { path: 'rucreateapp',component: RuCreateAppComponent},

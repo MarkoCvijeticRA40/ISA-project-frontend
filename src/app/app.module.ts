@@ -10,6 +10,7 @@ import { MatTableModule } from "@angular/material/table";
 import { CdkTableModule } from "@angular/cdk/table";
 import { TokenInterceptor } from "./interceptor/token-interceptor";
 import { RegisteredUserModule } from "./modules/registered-user/registered-user.module";
+import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisteredUserModule } from "./modules/registered-user/registered-user.
     PagesModule,
     MatTableModule,
     CdkTableModule,
-    RegisteredUserModule
+    RegisteredUserModule,
+    MedicalStaffModule
   ],
   providers: [
     {

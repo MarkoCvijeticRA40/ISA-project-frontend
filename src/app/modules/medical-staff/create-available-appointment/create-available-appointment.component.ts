@@ -142,4 +142,5 @@ export class CreateAvailableAppointmentComponent implements OnInit {
     })
     this.freeAppointment.duration = 15;
   }
+
 }

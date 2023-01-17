@@ -5,11 +5,11 @@ import { MedicalStaff } from 'src/app/model/medical-staff.model';
 import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 
 @Component({
-  selector: 'app-edit-administrator-profile',
-  templateUrl: './edit-administrator-profile.component.html',
-  styleUrls: ['./edit-administrator-profile.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
-export class EditAdministratorProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
 
   constructor(private service: MedicalstaffService,private router: Router) { }
 
@@ -65,4 +65,5 @@ export class EditAdministratorProfileComponent implements OnInit {
          && this.medicalStaff.address.city != '' && this.medicalStaff.address.state != '' 
          && this.medicalStaff.address.street != '' && this.medicalStaff.phoneNum != '' && this.medicalStaff.address.city != '' && this.medicalStaff.address.number != ''
   }
+
 }

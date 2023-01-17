@@ -21,8 +21,6 @@ import { RegisterCenterComponent } from './register-center/register-center.compo
 */
 import { ShowRegisterUserProfileComponent } from './show-register-user-profile/show-register-user-profile.component';
 import { EditRegisterUserProfileComponent } from './edit-register-user-profile/edit-register-user-profile.component';
-import { ShowAdministratorProfileComponent } from './show-administrator-profile/show-administrator-profile.component';
-import { EditAdministratorProfileComponent } from './edit-administrator-profile/edit-administrator-profile.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DonorPollComponent } from './donor-poll/donor-poll.component';
 import { MatRadioModule } from '@angular/material/radio';
@@ -51,8 +49,6 @@ const routes: Routes = [
     RegisterCenterComponent,
     ShowRegisterUserProfileComponent,
     EditRegisterUserProfileComponent,
-    ShowAdministratorProfileComponent,
-    EditAdministratorProfileComponent,
     UserLoginComponent,
     DonorPollComponent,
     RegisteredUsersComponent,

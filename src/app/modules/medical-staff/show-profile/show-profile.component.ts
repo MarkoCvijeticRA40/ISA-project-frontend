@@ -4,11 +4,11 @@ import { MedicalStaff } from 'src/app/model/medical-staff.model';
 import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 
 @Component({
-  selector: 'app-show-administrator-profile',
-  templateUrl: './show-administrator-profile.component.html',
-  styleUrls: ['./show-administrator-profile.component.css']
+  selector: 'app-show-profile',
+  templateUrl: './show-profile.component.html',
+  styleUrls: ['./show-profile.component.css']
 })
-export class ShowAdministratorProfileComponent implements OnInit {
+export class ShowProfileComponent implements OnInit {
 
   public medicalStaff: MedicalStaff = new MedicalStaff();
   
@@ -23,4 +23,5 @@ export class ShowAdministratorProfileComponent implements OnInit {
       this.medicalStaff = res;
     })
   }
+
 }

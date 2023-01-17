@@ -6,6 +6,7 @@ import { DonorPoll } from 'src/app/model/donor-poll.model';
 import { Gender } from 'src/app/model/gender.model';
 import { DonorPollService } from 'src/app/service/donor-poll.service';
 
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;

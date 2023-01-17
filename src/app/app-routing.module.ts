@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { DonorPollComponent } from "./modules/pages/donor-poll/donor-poll.component";
 import { HomeComponent } from "./modules/pages/home/home.component";
 import { UpdateCenterComponent } from "./modules/pages/update-center/update-center.component";
 import { RegisterUserComponent } from "./modules/pages/register-user/register-user.component";
@@ -11,10 +10,11 @@ import { RuCreateAppComponent } from "./modules/pages/ru-create-app/ru-create-ap
 import { RegisterSystemAdministratorComponent } from './modules/pages/register-system-administrator/register-system-administrator.component';
 import { ChangePasswordSystemAdministratorComponent } from './modules/pages/change-password-system-administrator/change-password-system-administrator.component';
 import { ShowRegisterUserProfileComponent } from "./modules/pages/show-register-user-profile/show-register-user-profile.component";
-import { EditRegisterUserProfileComponent } from "./modules/pages/edit-register-user-profile/edit-register-user-profile.component";
 import { CreateAvailableAppointmentComponent } from "./modules/medical-staff/create-available-appointment/create-available-appointment.component";
 import { EditProfileComponent } from "./modules/medical-staff/edit-profile/edit-profile.component";
 import { ShowProfileComponent } from "./modules/medical-staff/show-profile/show-profile.component";
+import { DonorPollComponent } from "./modules/registered-user/donor-poll/donor-poll.component";
+import { EditUserProfileComponent } from "./modules/registered-user/edit-user-profile/edit-user-profile.component";
 
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'adminprofile',component: ShowProfileComponent},
   { path: 'editadminprofile',component: EditProfileComponent},
   { path: 'userprofile', component : ShowRegisterUserProfileComponent},
-  { path: 'edituserprofile', component: EditRegisterUserProfileComponent},
+  { path: 'edituserprofile', component: EditUserProfileComponent},
   { path: 'rucreateapp',component: RuCreateAppComponent},
   { path: 'login', component: UserLoginComponent},
   { path: 'poll', component: DonorPollComponent},

@@ -12,21 +12,12 @@ import { RegisteredUsersComponent } from './registered-users/registered-users.co
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-
-/*
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { RouterModule, Routes } from "@angular/router";
-import { RegisterCenterComponent } from './register-center/register-center.component';
-*/
 import { ShowRegisterUserProfileComponent } from './show-register-user-profile/show-register-user-profile.component';
-import { EditRegisterUserProfileComponent } from './edit-register-user-profile/edit-register-user-profile.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { DonorPollComponent } from './donor-poll/donor-poll.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { RouterModule, Routes } from "@angular/router";
+import { Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
 import { RuCreateAppComponent } from './ru-create-app/ru-create-app.component';
 import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
@@ -48,9 +39,7 @@ const routes: Routes = [
     RegisteredUsersComponent,
     RegisterCenterComponent,
     ShowRegisterUserProfileComponent,
-    EditRegisterUserProfileComponent,
     UserLoginComponent,
-    DonorPollComponent,
     RegisteredUsersComponent,
     RegisterCenterComponent,
     RuCreateAppComponent,

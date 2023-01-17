@@ -5,11 +5,11 @@ import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-edit-register-user-profile',
-  templateUrl: './edit-register-user-profile.component.html',
-  styleUrls: ['./edit-register-user-profile.component.css']
+  selector: 'app-edit-user-profile',
+  templateUrl: './edit-user-profile.component.html',
+  styleUrls: ['./edit-user-profile.component.css']
 })
-export class EditRegisterUserProfileComponent implements OnInit {
+export class EditUserProfileComponent implements OnInit {
 
   constructor(private service: UserService,private router: Router) { }
 
@@ -65,4 +65,5 @@ export class EditRegisterUserProfileComponent implements OnInit {
          && this.user.address.city != '' && this.user.address.state != '' 
          && this.user.address.street != '' && this.user.phoneNum != '' && this.user.address.city != '' && this.user.address.number != ''
   }
+
 }

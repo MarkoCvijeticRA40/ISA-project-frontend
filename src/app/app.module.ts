@@ -11,6 +11,7 @@ import { CdkTableModule } from "@angular/cdk/table";
 import { TokenInterceptor } from "./interceptor/token-interceptor";
 import { RegisteredUserModule } from "./modules/registered-user/registered-user.module";
 import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module";
+import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module
     MatTableModule,
     CdkTableModule,
     RegisteredUserModule,
-    MedicalStaffModule
+    MedicalStaffModule,
+    SystemAdminModule,
   ],
   providers: [
     {

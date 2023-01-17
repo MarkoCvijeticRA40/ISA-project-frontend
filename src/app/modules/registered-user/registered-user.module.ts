@@ -11,12 +11,14 @@ import { DonorPollComponent } from './donor-poll/donor-poll.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { CreateScheduledAppointmentComponent } from './create-scheduled-appointment/create-scheduled-appointment.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ShowProfileComponent } from './show-profile/show-profile.component';
 
 @NgModule({
   declarations: [
     DonorPollComponent,
     CreateScheduledAppointmentComponent,
     EditProfileComponent,
+    ShowProfileComponent,
   ],
   imports: [
     CommonModule,

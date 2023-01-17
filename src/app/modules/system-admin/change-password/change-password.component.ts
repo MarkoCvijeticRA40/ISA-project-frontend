@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-//import { Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Gender } from 'src/app/model/gender.model';
 import { SystemAdministrator } from 'src/app/model/system-administrator.model';
 import { UserService } from 'src/app/service/user.service';
-import { ActivatedRoute, Router, Params } from "@angular/router";
-
-
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -16,20 +13,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
-  selector: 'app-change-password-system-administrator',
-  templateUrl: './change-password-system-administrator.component.html',
-  styleUrls: ['./change-password-system-administrator.component.css']
+  selector: 'app-change-password',
+  templateUrl: './change-password.component.html',
+  styleUrls: ['./change-password.component.css']
 })
-
-
- export class ChangePasswordSystemAdministratorComponent  implements OnInit {
+export class ChangePasswordComponent implements OnInit {
 
   public user: SystemAdministrator = new SystemAdministrator();
   
-  
-
   genders = [
     { value: Gender.Male, viewValue: "Male" },
     { value: Gender.Female, viewValue: "Female"}
@@ -85,15 +77,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   private isPassConfirmed(): boolean {
     return this.password === this.confirmationPass;
   }
-
   
   private setSystemAdministrator(): void{
     this.user.isFirstLogin = false
-    this.user.password = this.password;
-   
+    this.user.password = this.password;  
  }
 
-
 }
-
-

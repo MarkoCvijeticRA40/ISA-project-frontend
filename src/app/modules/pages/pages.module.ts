@@ -12,7 +12,6 @@ import { RegisteredUsersComponent } from './registered-users/registered-users.co
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import { ShowRegisterUserProfileComponent } from './show-register-user-profile/show-register-user-profile.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -20,7 +19,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { Routes } from "@angular/router";
 import { RegisterCenterComponent } from './register-center/register-center.component';
 import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
-import { ChangePasswordSystemAdministratorComponent } from './change-password-system-administrator/change-password-system-administrator.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,12 +35,10 @@ const routes: Routes = [
     RegisterUserComponent,
     RegisteredUsersComponent,
     RegisterCenterComponent,
-    ShowRegisterUserProfileComponent,
     UserLoginComponent,
     RegisteredUsersComponent,
     RegisterCenterComponent,
     RegisterSystemAdministratorComponent,
-    ChangePasswordSystemAdministratorComponent
   ],
   imports: [
     CommonModule,

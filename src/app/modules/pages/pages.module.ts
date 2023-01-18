@@ -6,21 +6,19 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import { UserLoginComponent } from './user-login/user-login.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Routes } from "@angular/router";
 import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'register/user', component: RegisterUserComponent},
   { path: 'register/systemAdministrator', component: RegisterSystemAdministratorComponent},
   { path: 'registeredUsers', component: RegisteredUsersComponent}
   
@@ -29,11 +27,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    RegisterUserComponent,
     RegisteredUsersComponent,
-    UserLoginComponent,
     RegisteredUsersComponent,
     RegisterSystemAdministratorComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,

@@ -12,8 +12,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CreateScheduledAppointmentComponent } from './create-scheduled-appointment/create-scheduled-appointment.component';
 import { ShowUserProfileComponent } from './show-user-profile/show-user-profile.component';
 import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
-import { EditProfileComponent } from '../medical-staff/edit-profile/edit-profile.component';
-import { ShowProfileComponent } from '../medical-staff/show-profile/show-profile.component';
+import { RegisterComponent } from './register/register.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { ShowProfileComponent } from '../medical-staff/show-profile/show-profile
     CreateScheduledAppointmentComponent,
     ShowUserProfileComponent,
     EditUserProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +34,7 @@ import { ShowProfileComponent } from '../medical-staff/show-profile/show-profile
     MatButtonModule,
     ReactiveFormsModule,
     MatRadioModule,
+    MatTableModule
   ]
 })
 export class RegisteredUserModule { }

@@ -4,11 +4,11 @@ import { LoginData } from 'src/app/model/login-data.model';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class UserLoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   public data: LoginData = new LoginData();
 

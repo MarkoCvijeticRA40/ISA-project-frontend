@@ -1,26 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { FormControl, Validators } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Gender } from 'src/app/model/gender.model';
 import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { UserService } from 'src/app/service/user.service';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { MyErrorStateMatcher } from '../donor-poll/donor-poll.component';
 
 @Component({
-  selector: 'app-register-user',
-  templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-
-
-export class RegisterUserComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   public user: RegisteredUser = new RegisteredUser();
 
@@ -126,4 +118,3 @@ export class RegisterUserComponent implements OnInit {
 function detectChanges() {
   throw new Error('Function not implemented.');
 }
-

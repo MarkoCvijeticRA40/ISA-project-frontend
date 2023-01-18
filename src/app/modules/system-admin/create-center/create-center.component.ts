@@ -2,15 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { Center } from 'src/app/model/center.model';
 import { Gender } from 'src/app/model/gender.model';
 import { MedicalStaff } from 'src/app/model/medical-staff.model';
-import { Center } from 'src/app/model/center.model';
-
-
-
 import { CenterService } from 'src/app/service/center.service';
 import { UserService } from 'src/app/service/user.service';
-import { ThisReceiver } from '@angular/compiler';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,14 +15,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
-  selector: 'app-register-center',
-  templateUrl: './register-center.component.html',
-  styleUrls: ['./register-center.component.css']
+  selector: 'app-create-center',
+  templateUrl: './create-center.component.html',
+  styleUrls: ['./create-center.component.css']
 })
-export class RegisterCenterComponent implements OnInit {
-  
+export class CreateCenterComponent implements OnInit {
+
   public center: Center = new Center()
   
   public medicalStaff: MedicalStaff = new MedicalStaff();

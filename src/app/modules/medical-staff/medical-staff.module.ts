@@ -10,12 +10,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
+import { UpdateCenterComponent } from './update-center/update-center.component';
 
 @NgModule({
   declarations: [
     CreateAvailableAppointmentComponent,
     EditProfileComponent,
-    ShowProfileComponent
+    ShowProfileComponent,
+    UpdateCenterComponent
   ],
   imports: [
     CommonModule,

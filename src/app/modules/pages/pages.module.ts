@@ -6,7 +6,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { UpdateCenterComponent } from './update-center/update-center.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 import { MaterialModule } from 'src/app/material/material.module';
@@ -17,7 +16,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Routes } from "@angular/router";
-import { RegisterCenterComponent } from './register-center/register-center.component';
 import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
 
 const routes: Routes = [
@@ -31,13 +29,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    UpdateCenterComponent,
     RegisterUserComponent,
     RegisteredUsersComponent,
-    RegisterCenterComponent,
     UserLoginComponent,
     RegisteredUsersComponent,
-    RegisterCenterComponent,
     RegisterSystemAdministratorComponent,
   ],
   imports: [

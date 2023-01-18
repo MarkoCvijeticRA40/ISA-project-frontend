@@ -9,10 +9,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { CreateCenterComponent } from './create-center/create-center.component';
 
 @NgModule({
   declarations: [
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CreateCenterComponent
   ],
   imports: [
     CommonModule,

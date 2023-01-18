@@ -14,12 +14,10 @@ import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
 })
 export class CreateAvailableAppointmentComponent implements OnInit {
 
-  startDate : Date = new Date();
-
-  workTimeDateStart : Date = new Date();
-
-  workTimeDateEnd : Date = new Date();
-
+  workTimeStart : Date = new Date(); 
+  
+  workTimeEnd : Date = new Date();
+  
   freeAppointmentStartWithDuration : Date = new Date();
 
   public freeAppointment : Freeapointment = new Freeapointment();
@@ -71,34 +69,33 @@ export class CreateAvailableAppointmentComponent implements OnInit {
   ];
   
   constructor(private freeAppointmentService: FreeappointmentService,private service: MedicalstaffService,private centerService : CenterService) 
-  { 
-    this.startDate.setDate(this.startDate.getDate() + 1);
-  }
+  { }
 
-  public isWorkTimeValid() {
+  public isCenterAvailable() {
     
     //Kreiranje novog datuma koji postavljamo na datum free appointmenta,i postavljamo sat i minut od worktime da bih mogao da poredim -<> workTimeStart
-    var stringForSplit = this.centerForFreeApp.workTime.startTime;   
-    var splitedFirstDate = stringForSplit.split(':');
+    var stringForSplit = this.centerForFreeApp.workTime.startTime.toString();   
+    var splitedFirstDate = stringForSplit.split(',');
     this.workTimeHour = parseInt(splitedFirstDate[0]);
     this.workTimeMinute = parseInt(splitedFirstDate[1])
-    this.workTimeDateStart = new Date(this.freeAppointment.date);
-    this.workTimeDateStart.setHours(this.workTimeHour);
-    this.workTimeDateStart.setMinutes(this.workTimeMinute);
+    this.workTimeStart = new Date(this.freeAppointment.date);
+    this.workTimeStart.setHours(this.workTimeHour);
+    this.workTimeStart.setMinutes(this.workTimeMinute);
 
     //Kreiranje novog datuma koji postavljamo na datum free appointmenta,i postavljamo sat i minut od worktime da bih mogao da poredim -<> workTimeEnd
-    var stringForSplit = this.centerForFreeApp.workTime.endTime;   
-    var splitedFirstDate = stringForSplit.split(':');
+    var stringForSplit = this.centerForFreeApp.workTime.endTime.toString();   
+    var splitedFirstDate = stringForSplit.split(',');
     this.workTimeHour = parseInt(splitedFirstDate[0]);
     this.workTimeMinute = parseInt(splitedFirstDate[1]);
-    this.workTimeDateEnd = new Date(this.freeAppointment.date);
-    this.workTimeDateEnd.setHours(this.workTimeHour);
-    this.workTimeDateEnd.setMinutes(this.workTimeMinute);
+    this.workTimeEnd = new Date(this.freeAppointment.date);
+    this.workTimeEnd.setHours(this.workTimeHour);
+    this.workTimeEnd.setMinutes(this.workTimeMinute);
 
     //Dodamo na termin appointmenta i duzinu trajanja jer i ona treba da bude ukljucena u potvrdu
-    this.freeAppointmentStartWithDuration = new Date(this.freeAppointment.date.setMinutes(this.freeAppointment.date.getMinutes() + this.freeAppointment.duration));
+    this.freeAppointmentStartWithDuration = new Date(this.freeAppointment.date);
+    this.freeAppointmentStartWithDuration.setMinutes(this.freeAppointment.date.getMinutes() + this.freeAppointment.duration);
     
-    if(this.freeAppointmentStartWithDuration >= this.workTimeDateStart && this.freeAppointmentStartWithDuration <= this.workTimeDateEnd ) {
+    if(this.freeAppointmentStartWithDuration >= this.workTimeStart && this.freeAppointmentStartWithDuration <= this.workTimeEnd ) {
       
       this.freeAppointmentStartWithDuration = new Date();
       return true;
@@ -108,14 +105,16 @@ export class CreateAvailableAppointmentComponent implements OnInit {
   }
 
   public createFreeAppointment() {
+    
     this.freeAppointment.date.setHours(1);
+    this.freeAppointment.date.setMinutes(0);
     this.freeAppointment.date.setSeconds(0);
     this.freeAppointment.date.setMilliseconds(0);
     this.freeAppointment.center = this.centerForFreeApp;
     this.freeAppointment.date.setHours(this.hour);
     this.freeAppointment.date.setMinutes(this.minute);
     
-    if(this.isWorkTimeValid() == true) 
+    if(this.isCenterAvailable() == true) 
     {
       this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
         this.freeAppointment = res;
@@ -126,7 +125,7 @@ export class CreateAvailableAppointmentComponent implements OnInit {
     }
     else 
     {
-      alert("The center is not open during this period. The center is open from" + '' + this.centerForFreeApp.workTime.startTime + '' + "to" + '' + this.centerForFreeApp.workTime.endTime);
+      alert("The center is not open during this period. The center is open from" + ' ' + this.workTimeStart.getHours().toString() + ' ' + "to" + ' ' + this.workTimeEnd.getHours().toString());
       this.freeAppointment = new Freeapointment();
       this.ngOnInit();
     }

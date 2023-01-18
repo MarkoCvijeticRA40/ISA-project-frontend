@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { CdkTableModule } from "@angular/cdk/table";
 import { TokenInterceptor } from "./interceptor/token-interceptor";
+import { RegisteredUserModule } from "./modules/registered-user/registered-user.module";
+import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module";
+import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,9 @@ import { TokenInterceptor } from "./interceptor/token-interceptor";
     PagesModule,
     MatTableModule,
     CdkTableModule,
+    RegisteredUserModule,
+    MedicalStaffModule,
+    SystemAdminModule,
   ],
   providers: [
     {

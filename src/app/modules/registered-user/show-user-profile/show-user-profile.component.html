@@ -1,0 +1,57 @@
+<table id="table1">
+    <tr>
+      <th>Id:</th>
+      <td>{{registerUser.identityNumber}}</td>
+    </tr>
+    
+    <tr>
+      <th>Name:</th>
+      <td>{{registerUser.name}}</td>
+    </tr>
+  
+    <tr>
+      <th>Surname:</th>
+      <td>{{registerUser.surname}}</td>
+    </tr>
+    
+    <tr>
+      <th>Email:</th>
+      <td>{{registerUser.email}}</td>
+    </tr>
+  
+    <tr>
+      <th>Password:</th>
+      <td>{{registerUser.password}}</td>
+    </tr>
+  
+    <tr>
+      <th>PhoneNumber:</th>
+      <td>{{registerUser.phoneNum}}</td>
+    </tr>
+    
+    <tr>
+      <th>Street:</th>
+      <td>{{registerUser.address.street}}</td>
+    </tr>
+  
+    <tr>
+      <th>Number:</th>
+      <td>{{registerUser.address.number}}</td>
+    </tr>
+    
+    <tr>
+      <th>State:</th>
+      <td>{{registerUser.address.state}}</td>
+    </tr>
+  
+    <tr>
+      <th>City:</th>
+      <td>{{registerUser.address.city}}</td>
+    </tr>
+  
+    <tr>
+      <th>Edit</th>
+      <td><button type="submit" (click)="ChangePage()">Edit</button></td>
+    </tr>
+  </table>
+    

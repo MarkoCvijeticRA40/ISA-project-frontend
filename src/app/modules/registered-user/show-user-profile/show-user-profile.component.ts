@@ -14,11 +14,11 @@ export class ShowUserProfileComponent implements OnInit {
   constructor(private service: UserService,private router : Router) { }
 
   public ChangePage(){
-    this.router.navigate(['/edit/user/profile']);
+    this.router.navigate(['registered-user/edit/user/profile']);
   }
 
   ngOnInit(): void {
-    this.service.find("marko@gmail.com").subscribe(res => {
+    this.service.find(this.service.currentUser.email).subscribe(res => {
       this.registerUser = res;
     })
   }

@@ -15,7 +15,7 @@ export class ShowProfileComponent implements OnInit {
   constructor(private service: MedicalstaffService,private router : Router) { }
 
   public ChangePage(){
-    this.router.navigate(['/edit/admin/profile']);
+    this.router.navigate(['medical-staff/edit/admin/profile']);
   }
 
   ngOnInit(): void {

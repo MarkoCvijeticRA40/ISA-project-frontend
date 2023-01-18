@@ -1,6 +1,6 @@
 <body>
     <form class="container">
-        <mat-form-field class="example-full-width" style="color: white;">
+        <mat-form-field style="color: white;">
           <input matInput placeholder="Name"  [formControl]="requiredNameControl"
                  [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.name">
           <mat-error *ngIf="requiredNameControl.hasError('required')">
@@ -8,7 +8,7 @@
           </mat-error>
         </mat-form-field><br>
     
-        <mat-form-field class="example-full-width" style="color: white;">
+        <mat-form-field style="color: white;">
             <input matInput placeholder="Surname" [formControl]="requiredSurnameControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.surname">
             <mat-error *ngIf="requiredSurnameControl.hasError('required')">
@@ -16,7 +16,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Name of father" [formControl]="requiredNameOfFatherControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.nameOfFather">
             <mat-error *ngIf="requiredNameOfFatherControl.hasError('required')">
@@ -24,7 +24,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Identity number" [formControl]="requiredIDControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.identityNumber">
             <mat-error *ngIf="requiredIDControl.hasError('required')">
@@ -45,9 +45,9 @@
                 </mat-error>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+          </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Phone number" [formControl]="requiredPhoneControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.phoneNum">
             <mat-error *ngIf="requiredPhoneControl.hasError('required')">
@@ -55,7 +55,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Facility, college, school" [formControl]="requiredFacilityControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.facility">
             <mat-error *ngIf="requiredFacilityControl.hasError('required')">
@@ -63,7 +63,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Profession" [formControl]="requiredProfessionControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.profession">
             <mat-error *ngIf="requiredProfessionControl.hasError('required')">
@@ -71,7 +71,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput type="number" placeholder="Number of blood donations " [formControl]="requiredNumberControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.numberOfBloodDonations">
             <mat-error *ngIf="requiredNumberControl.hasError('required')">
@@ -79,7 +79,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="City" [formControl]="requiredCityControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.city">
             <mat-error *ngIf="requiredCityControl.hasError('required')">
@@ -87,7 +87,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="State" [formControl]="requiredStateControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.state">
             <mat-error *ngIf="requiredStateControl.hasError('required')">
@@ -95,7 +95,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Street" [formControl]="requiredStreetControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.street">
             <mat-error *ngIf="requiredStreetControl.hasError('required')">
@@ -103,7 +103,7 @@
             </mat-error>
           </mat-form-field><br>
     
-          <mat-form-field class="example-full-width" style="color: white;">
+          <mat-form-field style="color: white;">
             <input matInput placeholder="Number of home" [formControl]="requiredNumberControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.address.number">
             <mat-error *ngIf="requiredNumberControl.hasError('required')">
@@ -126,7 +126,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueOne"
                 name="myValueOne">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>
@@ -137,7 +137,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueTwo"
                 name="myValueTwo">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>
@@ -147,7 +147,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueThree"
                 name="myValueThree">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>
@@ -158,7 +158,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueFour"
                 name="MyValueFour">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>
@@ -168,7 +168,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueFive"
                 name="muValueFive">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>
@@ -178,7 +178,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueSix"
                 name="myValueSix">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>
@@ -188,7 +188,7 @@
                 aria-labelledby="example-radio-group-label"
                 [(ngModel)]="myValueSeven"
                 name="myValueSeven">
-                <mat-radio-button class="example-radio-button" style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
+                <mat-radio-button style="color: white;" *ngFor="let obj of myOptions" [value]="obj">
                 {{obj}}
                 </mat-radio-button>
                 </mat-radio-group><br><br>

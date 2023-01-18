@@ -58,7 +58,7 @@ export class UserService {
     return this.http.get(this.apiHost + 'users/whoami', {headers: this.headers})
       .pipe(map(user => {
         this.currentUser = user;
-        console.log('Current user' + this.currentUser.email)
+        console.log('Current user' + ' ' + this.currentUser.role.name)
         return user;
       }));
   }

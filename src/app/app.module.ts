@@ -14,6 +14,8 @@ import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module
 import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent  ],
@@ -29,6 +31,8 @@ import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
     RegisteredUserModule,
     MedicalStaffModule,
     SystemAdminModule,
+    
+    
   ],
   providers: [
     {

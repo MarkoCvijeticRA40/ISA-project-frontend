@@ -65,8 +65,8 @@ export class HomeComponent implements OnInit {
 
   private setWorkTime() {
     for (let center of this.centers) {
-      center.workTime.startTime = center.workTime.startTime.split(":")[0] + ':' + center.workTime.startTime.split(":")[1];
-      center.workTime.endTime = center.workTime.endTime.split(":")[0] + ':' + center.workTime.endTime.split(":")[1];
+      center.workTime.startTime = center.workTime.startTime.toString().split(",")[0] + ':' + center.workTime.startTime.toString().split(",")[1];
+      center.workTime.endTime = center.workTime.endTime.toString().split(",")[0] + ':' + center.workTime.endTime.toString().split(",")[1];
     }
   }
 

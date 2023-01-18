@@ -12,8 +12,25 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CreateScheduledAppointmentComponent } from './create-scheduled-appointment/create-scheduled-appointment.component';
 import { ShowUserProfileComponent } from './show-user-profile/show-user-profile.component';
 import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
-import { RegisterComponent } from './register/register.component';
 import { MatTableModule } from '@angular/material/table';
+import { RegisteredUserComponent } from './registered-user/registered-user.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '', component: RegisteredUserComponent, children: [
+      { path: 'poll', component: DonorPollComponent },
+      { path: 'create/scheduled/appointment', component: CreateScheduledAppointmentComponent },
+      { path: 'edit/user/profile', component: EditUserProfileComponent},
+      { path: 'user/profile', component : ShowUserProfileComponent},
+      
+    ]
+  }
+];
 
 @NgModule({
   declarations: [
@@ -21,8 +38,9 @@ import { MatTableModule } from '@angular/material/table';
     CreateScheduledAppointmentComponent,
     ShowUserProfileComponent,
     EditUserProfileComponent,
-    RegisterComponent,
+    RegisteredUserComponent,
   ],
+  exports: [RouterModule],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -34,7 +52,14 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    RouterModule,
+    RouterModule.forChild(routes),
+
   ]
 })
 export class RegisteredUserModule { }

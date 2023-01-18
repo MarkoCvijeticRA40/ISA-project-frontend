@@ -6,6 +6,7 @@ import { MedicalStaff } from 'src/app/model/medical-staff.model';
 import { CenterService } from 'src/app/service/center.service';
 import { FreeappointmentService } from 'src/app/service/freeappointment.service';
 import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-create-available-appointment',
@@ -13,6 +14,7 @@ import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
   styleUrls: ['./create-available-appointment.component.css']
 })
 export class CreateAvailableAppointmentComponent implements OnInit {
+  startDate: Date = new Date();
 
   workTimeStart : Date = new Date(); 
   
@@ -68,7 +70,8 @@ export class CreateAvailableAppointmentComponent implements OnInit {
     {value: 60, viewValue: "60"},
   ];
   
-  constructor(private freeAppointmentService: FreeappointmentService,private service: MedicalstaffService,private centerService : CenterService) 
+  constructor(private freeAppointmentService: FreeappointmentService,private service: MedicalstaffService,private centerService : CenterService, private userService: UserService) 
+
   { }
 
   public isCenterAvailable() {
@@ -132,11 +135,11 @@ export class CreateAvailableAppointmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.find("milan@gmail.com").subscribe(res => {
+    this.service.find(this.userService.currentUser.email).subscribe(res => {
       this.medicalStaff = res;  
         this.freeAppointment.medicalStaff = this.medicalStaff; 
     })
-    this.centerService.getCenterByMedicalStaffId(1).subscribe(res => {
+    this.centerService.getCenterByMedicalStaffId(this.userService.currentUser.id).subscribe(res => {
       this.centerForFreeApp = res;   
     })
     this.freeAppointment.duration = 15;

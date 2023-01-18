@@ -4,9 +4,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Gender } from 'src/app/model/gender.model';
 import { SystemAdministrator } from 'src/app/model/system-administrator.model';
-
 import { UserService } from 'src/app/service/user.service';
-
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -17,14 +15,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 
-
 @Component({
-  selector: 'app-register-system-administrator',
-  templateUrl: './register-system-administrator.component.html',
-  styleUrls: ['./register-system-administrator.component.css']
+  selector: 'app-register-system-admin',
+  templateUrl: './register-system-admin.component.html',
+  styleUrls: ['./register-system-admin.component.css']
 })
-
-export class RegisterSystemAdministratorComponent implements OnInit {
+export class RegisterSystemAdminComponent implements OnInit {
 
   public user: SystemAdministrator = new SystemAdministrator();
   public medicalStaff: SystemAdministrator = new SystemAdministrator();
@@ -132,7 +128,4 @@ export class RegisterSystemAdministratorComponent implements OnInit {
     this.user.profession = "System admin"
  }
 
-
 }
-
-

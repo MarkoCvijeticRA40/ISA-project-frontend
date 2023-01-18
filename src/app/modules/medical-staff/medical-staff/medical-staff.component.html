@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidebarmenu.toggle()">menu</mat-icon>
+      </button>
+      <h2>Welcome</h2>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidebarmenu>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/medical-staff/admin/profile'"> Profile </a>
+        <a mat-list-item [routerLink]="'/medical-staff/create/available/appointment'"> Create appointment </a>
+        <a mat-list-item [routerLink]="'/medical-staff/admin/center/update'"> Center </a>
+        <a mat-list-item [routerLink]="'/medical-staff/registeredUsers'"> Users </a>
+        <a mat-list-item  href="#" mat-list-item>
+          Logout
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 92vh">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+

@@ -13,6 +13,7 @@ import { RegisteredUserModule } from "./modules/registered-user/registered-user.
 import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module";
 import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
 
+
 @NgModule({
   declarations: [
     AppComponent  ],

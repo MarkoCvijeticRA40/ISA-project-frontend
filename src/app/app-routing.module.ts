@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./modules/pages/home/home.component";
-import { UpdateCenterComponent } from "./modules/pages/update-center/update-center.component";
 import { RegisterUserComponent } from "./modules/pages/register-user/register-user.component";
 import { UserLoginComponent } from "./modules/pages/user-login/user-login.component";
 import { RegisterCenterComponent } from "./modules/pages/register-center/register-center.component";
@@ -13,14 +12,17 @@ import { ShowProfileComponent } from "./modules/medical-staff/show-profile/show-
 import { DonorPollComponent } from "./modules/registered-user/donor-poll/donor-poll.component";
 import { CreateScheduledAppointmentComponent } from "./modules/registered-user/create-scheduled-appointment/create-scheduled-appointment.component";
 import { ChangePasswordComponent } from "./modules/system-admin/change-password/change-password.component";
+import { UpdateCenterComponent } from "./modules/pages/update-center/update-center.component";
+import { EditUserProfileComponent } from "./modules/registered-user/edit-user-profile/edit-user-profile.component";
+import { ShowUserProfileComponent } from "./modules/registered-user/show-user-profile/show-user-profile.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register/user', component: RegisterUserComponent},
   { path: 'admin/profile',component: ShowProfileComponent},
   { path: 'edit/admin/profile',component: EditProfileComponent},
-  { path: 'user/profile', component : ShowProfileComponent},
-  { path: 'edit/user/profile', component: EditProfileComponent},
+  { path: 'user/profile', component : ShowUserProfileComponent},
+  { path: 'edit/user/profile', component: EditUserProfileComponent},
   { path: 'create/scheduled/appointment',component: CreateScheduledAppointmentComponent},
   { path: 'login', component: UserLoginComponent},
   { path: 'poll', component: DonorPollComponent},

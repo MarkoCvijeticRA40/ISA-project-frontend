@@ -10,15 +10,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { DonorPollComponent } from './donor-poll/donor-poll.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { CreateScheduledAppointmentComponent } from './create-scheduled-appointment/create-scheduled-appointment.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { ShowProfileComponent } from './show-profile/show-profile.component';
+import { ShowUserProfileComponent } from './show-user-profile/show-user-profile.component';
+import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
+import { EditProfileComponent } from '../medical-staff/edit-profile/edit-profile.component';
+import { ShowProfileComponent } from '../medical-staff/show-profile/show-profile.component';
 
 @NgModule({
   declarations: [
     DonorPollComponent,
     CreateScheduledAppointmentComponent,
-    EditProfileComponent,
-    ShowProfileComponent,
+    ShowUserProfileComponent,
+    EditUserProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,7 @@ import { ShowProfileComponent } from './show-profile/show-profile.component';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
   ]
 })
 export class RegisteredUserModule { }

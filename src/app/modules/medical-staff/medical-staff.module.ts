@@ -11,9 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 
-
-
-
 @NgModule({
   declarations: [
     CreateAvailableAppointmentComponent,

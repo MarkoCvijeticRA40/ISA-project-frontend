@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Gender } from 'src/app/model/gender.model';
 import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { UserService } from 'src/app/service/user.service';
-import { MyErrorStateMatcher } from '../donor-poll/donor-poll.component';
+import { MyErrorStateMatcher } from '../../registered-user/donor-poll/donor-poll.component';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-register-user',
+  templateUrl: './register-user.component.html',
+  styleUrls: ['./register-user.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterUserComponent implements OnInit {
 
   public user: RegisteredUser = new RegisteredUser();
 
@@ -36,7 +35,7 @@ export class RegisterComponent implements OnInit {
       if (this.isPassConfirmed()) {
         this.user.facilityInfo = this.user.facilityInfo.trim()
         this.userService.registerUser(this.user).subscribe(res => {
-          alert("You have registered successfully!");
+          alert("Check your email! Click on link that you received and activate your account.");
         })
     } else {
       alert("Password is not confirmed!");
@@ -113,8 +112,8 @@ export class RegisterComponent implements OnInit {
     this.isGenderSelected = true;
   }
 
-
 }
 function detectChanges() {
   throw new Error('Function not implemented.');
 }
+

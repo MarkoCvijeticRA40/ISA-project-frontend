@@ -13,15 +13,25 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { Routes } from "@angular/router";
-import { RegisterSystemAdministratorComponent } from './register-system-administrator/register-system-administrator.component';
+import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from './login/login.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { PagesComponent } from './pages/pages.component';
+
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'register/systemAdministrator', component: RegisterSystemAdministratorComponent},
-  { path: 'registeredUsers', component: RegisteredUsersComponent}
-  
+  {
+    path: '', component: PagesComponent, children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'register/user', component: RegisterUserComponent},
+      { path: 'login', component: LoginComponent},
+      
+    ]
+  }
 ];
 
 @NgModule({
@@ -29,12 +39,12 @@ const routes: Routes = [
     HomeComponent,
     RegisteredUsersComponent,
     RegisteredUsersComponent,
-    RegisterSystemAdministratorComponent,
     LoginComponent,
+    RegisterUserComponent,
+    PagesComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
@@ -44,12 +54,17 @@ const routes: Routes = [
     FormsModule,
     MatFormFieldModule,
     MatSelectModule,   
-    AppRoutingModule,
+    // AppRoutingModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    RouterModule,
+    RouterModule.forChild(routes),
+
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

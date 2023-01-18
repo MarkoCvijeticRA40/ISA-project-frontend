@@ -10,11 +10,35 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateCenterComponent } from './create-center/create-center.component';
+import { SystemAdminComponent } from './system-admin/system-admin.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule, Routes } from '@angular/router';
+import { RegisterSystemAdminComponent } from './register-system-admin/register-system-admin.component';
+import { RegisteredUsersComponent } from '../pages/registered-users/registered-users.component';
+
+const routes: Routes = [
+  {
+    path: '', component: SystemAdminComponent, children: [
+      { path: 'change/saPassword', component: ChangePasswordComponent },
+      { path: 'create/center', component: CreateCenterComponent},
+      { path: 'register/systemAdministrator', component: RegisterSystemAdminComponent},
+      { path: 'registeredUsers', component: RegisteredUsersComponent},
+      
+    ]
+  }
+];
+
+
 
 @NgModule({
   declarations: [
     ChangePasswordComponent,
-    CreateCenterComponent
+    CreateCenterComponent,
+    SystemAdminComponent,
+    RegisterSystemAdminComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +50,13 @@ import { CreateCenterComponent } from './create-center/create-center.component';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatRadioModule    
+    MatRadioModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,  
+    RouterModule,
+    RouterModule.forChild(routes),  
   ]
 })
 export class SystemAdminModule { }

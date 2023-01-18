@@ -1,7 +1,11 @@
-h1 
-{
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
+div {
+    margin-left: 20%;
+    margin-right: auto;
+}
+
+button {
+    margin-left: 36%;
+    
 }
 
 div {

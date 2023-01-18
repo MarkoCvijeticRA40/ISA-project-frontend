@@ -71,6 +71,7 @@ export class CreateAvailableAppointmentComponent implements OnInit {
   ];
   
   constructor(private freeAppointmentService: FreeappointmentService,private service: MedicalstaffService,private centerService : CenterService, private userService: UserService) 
+
   { }
 
   public isCenterAvailable() {

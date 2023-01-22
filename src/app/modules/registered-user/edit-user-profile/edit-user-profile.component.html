@@ -21,7 +21,7 @@
   
     <tr>
       <th>Password:</th>
-      <td><input type="text" [(ngModel)]="user.password"/></td>
+      <td><input type="text" [(ngModel)]="user.password" (keyup)="ChangePassword()"/></td>
     </tr>
   
     <tr>
@@ -65,7 +65,7 @@
   
     <tr>
       <th>Save</th>
-      <td><button type="submit" (click)="save()">Save</button></td>
+      <td><button mat-raised-button type="submit" (click)="save()">Save</button></td>
     </tr>
   </table>
     

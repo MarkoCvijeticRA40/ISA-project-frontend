@@ -21,6 +21,9 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { CentersComponent } from './centers/centers.component';
 import { SelectedCenterComponent } from './selected-center/selected-center.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
+import { HomeComponent } from '../pages/home/home.component';
+
 
 const routes: Routes = [
   {
@@ -31,7 +34,8 @@ const routes: Routes = [
       { path: 'user/profile', component : ShowUserProfileComponent},
       { path: 'centers', component: CentersComponent },
       { path: 'center/:centerId', component:SelectedCenterComponent},
-      
+      { path: 'change/password', component : PasswordChangeComponent},
+      { path: 'home' , component: HomeComponent}  
     ]
   }
 ];
@@ -45,6 +49,7 @@ const routes: Routes = [
     RegisteredUserComponent,
     CentersComponent,
     SelectedCenterComponent,
+    PasswordChangeComponent,
   ],
   exports: [RouterModule],
   imports: [

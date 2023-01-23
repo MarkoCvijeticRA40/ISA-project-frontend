@@ -30,6 +30,8 @@ export class CreateAvailableAppointmentComponent implements OnInit {
 
   public adressForFreeApp : Address = new Address();
 
+  different : any;
+
   hour : number = 8;
 
   minute : number = 0;
@@ -74,7 +76,7 @@ export class CreateAvailableAppointmentComponent implements OnInit {
 
   { }
 
-  public isCenterAvailable() {
+  public isCenterWorking() {
     
     //Kreiranje novog datuma koji postavljamo na datum free appointmenta,i postavljamo sat i minut od worktime da bih mogao da poredim -<> workTimeStart
     var stringForSplit = this.centerForFreeApp.workTime.startTime.toString();   
@@ -117,14 +119,21 @@ export class CreateAvailableAppointmentComponent implements OnInit {
     this.freeAppointment.date.setHours(this.hour);
     this.freeAppointment.date.setMinutes(this.minute);
     
-    if(this.isCenterAvailable() == true) 
+    if(this.isCenterWorking() == true) 
     {
-      this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
-        this.freeAppointment = res;
-        alert("You have successfully created a free appointment");
-        this.freeAppointment = new Freeapointment();
-        this.ngOnInit();
-      })
+      if(new Date().getTime() - this.freeAppointment.date.getTime() > 0) 
+      {
+        alert("You can't make an appointment because it's in the past!");
+      }
+      else 
+      {
+        this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
+          this.freeAppointment = res;
+          alert("You have successfully created a free appointment");
+          this.freeAppointment = new Freeapointment();
+          this.ngOnInit();
+        })
+      }
     }
     else 
     {

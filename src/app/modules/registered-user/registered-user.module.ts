@@ -20,6 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
       { path: 'create/scheduled/appointment', component: CreateScheduledAppointmentComponent },
       { path: 'edit/user/profile', component: EditUserProfileComponent},
       { path: 'user/profile', component : ShowUserProfileComponent},
-      { path: 'change/password', component : PasswordChangeComponent}      
+      { path: 'change/password', component : PasswordChangeComponent},
+      { path: 'home' , component: HomeComponent}  
     ]
   }
 ];

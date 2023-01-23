@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterSystemAdminComponent } from './register-system-admin/register-system-admin.component';
 import { RegisteredUsersComponent } from '../pages/registered-users/registered-users.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'create/center', component: CreateCenterComponent},
       { path: 'register/systemAdministrator', component: RegisterSystemAdminComponent},
       { path: 'registeredUsers', component: RegisteredUsersComponent},
+      { path: 'home' , component :HomeComponent}
       
     ]
   }

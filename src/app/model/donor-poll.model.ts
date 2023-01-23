@@ -21,6 +21,7 @@ export class DonorPoll {
     hasSomeAllergies: boolean = false;
     hasChronicDisease: boolean = false;
     isFeelingHealthy: boolean = false;
+    registeredUserId: number = 0;
 
 
     public constructor(obj?: any) {
@@ -44,6 +45,7 @@ export class DonorPoll {
             this.hasSomeAllergies = obj.hasSomeAllergies;
             this.hasChronicDisease = obj.hasChronicDisease;
             this.isFeelingHealthy = obj.isFeelingHealthy; 
+            this.registeredUserId = obj.registeredUserId;
         }
     }
 

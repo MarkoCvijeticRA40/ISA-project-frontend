@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DonorPoll } from 'src/app/model/donor-poll.model';
 import { Gender } from 'src/app/model/gender.model';
 import { DonorPollService } from 'src/app/service/donor-poll.service';
+import { UserService } from 'src/app/service/user.service';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -40,10 +41,12 @@ export class DonorPollComponent implements OnInit {
 
   isGenderSelected: boolean = false;
 
-  constructor(private donorPollService: DonorPollService, private router: Router) { }
+  constructor(private donorPollService: DonorPollService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    detectChanges();
+    this.donorPoll.registeredUserId = this.userService.currentUser.id;
+    this.donorPoll.name = this.userService.currentUser.name;
+    this.donorPoll.surname = this.userService.currentUser.surname;
   }
 
   public save() {
@@ -91,7 +94,6 @@ export class DonorPollComponent implements OnInit {
           else {
             this.donorPoll.isFeelingHealthy = false;
           }
-          
           this.donorPollService.save(this.donorPoll).subscribe(res => {
             alert("Saved!");
           })

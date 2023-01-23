@@ -16,4 +16,9 @@ export class DonorPollService {
   save(bloodDonorInfo: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'info', bloodDonorInfo, {headers: this.headers});
   }
+
+  isPollFilled(registeredUserId: any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'info/isFilled/' + registeredUserId, {headers: this.headers});
+  }
+
 }

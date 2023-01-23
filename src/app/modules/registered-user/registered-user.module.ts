@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
+import { CentersComponent } from './centers/centers.component';
+import { SelectedCenterComponent } from './selected-center/selected-center.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,8 @@ const routes: Routes = [
       { path: 'create/scheduled/appointment', component: CreateScheduledAppointmentComponent },
       { path: 'edit/user/profile', component: EditUserProfileComponent},
       { path: 'user/profile', component : ShowUserProfileComponent},
+      { path: 'centers', component: CentersComponent },
+      { path: 'center/:centerId', component:SelectedCenterComponent},
       
     ]
   }
@@ -39,6 +43,8 @@ const routes: Routes = [
     ShowUserProfileComponent,
     EditUserProfileComponent,
     RegisteredUserComponent,
+    CentersComponent,
+    SelectedCenterComponent,
   ],
   exports: [RouterModule],
   imports: [

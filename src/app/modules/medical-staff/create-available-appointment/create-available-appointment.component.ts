@@ -126,12 +126,19 @@ export class CreateAvailableAppointmentComponent implements OnInit {
         alert("You can't make an appointment because it's in the past!");
       }
       else 
-      {
+      { 
         this.freeAppointmentService.createFreeAppointment(this.freeAppointment).subscribe(res => {
           this.freeAppointment = res;
-          alert("You have successfully created a free appointment");
-          this.freeAppointment = new Freeapointment();
-          this.ngOnInit();
+          if(this.freeAppointment == null) {
+            alert("There is already free appointment for this term!");
+            this.freeAppointment = new Freeapointment();
+            this.ngOnInit();
+          }
+          else { 
+            alert("You have successfully created a free appointment");
+            this.freeAppointment = new Freeapointment();
+            this.ngOnInit();
+          }
         })
       }
     }

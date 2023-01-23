@@ -27,9 +27,13 @@ export class EditUserProfileComponent implements OnInit {
     alert("You have not entered the data in the correct format!");
     }
   }
+
+  public ChangePassword() {
+    this.router.navigate(['registered-user/change/password']);
+  }
   
   ngOnInit(): void {
-    this.service.find("marko@gmail.com").subscribe(res => {
+    this.service.find(this.service.currentUser.email).subscribe(res => {
       this.user = res;
     })
   }

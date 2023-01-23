@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateAvailableAppointmentComponent } from './create-available-appointment/create-available-appointment.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -18,6 +18,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisteredUsersComponent } from '../pages/registered-users/registered-users.component';
+import { ChangePasswordStaffComponent } from './change-password-staff/change-password-staff.component';
+import { MatTable, MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -27,7 +29,7 @@ const routes: Routes = [
       { path: 'edit/admin/profile',component: EditProfileComponent},
       { path: 'admin/center/update', component: UpdateCenterComponent },
       { path: 'registeredUsers', component: RegisteredUsersComponent},
-      
+      { path: 'change/password', component : ChangePasswordStaffComponent}  
     ]
   }
 ];
@@ -40,7 +42,8 @@ const routes: Routes = [
     EditProfileComponent,
     ShowProfileComponent,
     UpdateCenterComponent,
-    MedicalStaffComponent
+    MedicalStaffComponent,
+    ChangePasswordStaffComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +60,8 @@ const routes: Routes = [
     MatListModule,
     RouterModule,
     RouterModule.forChild(routes),
+    MatTableModule,
+    ReactiveFormsModule
   ]
 })
 export class MedicalStaffModule { }

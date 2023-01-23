@@ -20,7 +20,7 @@ export class EditProfileComponent implements OnInit {
     if (this.isInputValid()) {  
     this.service.save(this.medicalStaff).subscribe(res => {
         alert("You have changed successfully!");
-          this.router.navigate(['/admin/profile']);
+          this.router.navigate(['medical-staff/admin/profile']);
     })
   }
   
@@ -33,6 +33,10 @@ export class EditProfileComponent implements OnInit {
     this.service.find(this.userService.currentUser.email).subscribe(res => {
       this.medicalStaff = res;
     })
+  }
+
+  public ChangePassword() {
+    this.router.navigate(['medical-staff/change/password']);
   }
 
   emailFormControl = new FormControl('', [

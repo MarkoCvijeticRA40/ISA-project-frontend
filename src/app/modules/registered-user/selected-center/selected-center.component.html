@@ -1,0 +1,19 @@
+<div class="container">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Time </th>
+            <td mat-cell *matCellDef="let freeAppointment" class="cell-center">{{ freeAppointment.date | date : 'short'}} &nbsp;&nbsp;&nbsp;</td>
+        </ng-container>
+        <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Duration </th>
+            <td mat-cell *matCellDef="let freeAppointment" class="cell-center">{{ freeAppointment.duration}}min  &nbsp;&nbsp;&nbsp;</td>
+        </ng-container>
+        <ng-container matColumnDef="schedule">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> </th>
+            <td mat-cell *matCellDef="let freeAppointment" class="cell-center"><button [disabled]='isDonorPollFilled == false || hasDonatedBloodInLastSixMonths == true' mat-button (click)="schedule(freeAppointment.id)"> Schedule </button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+</div>

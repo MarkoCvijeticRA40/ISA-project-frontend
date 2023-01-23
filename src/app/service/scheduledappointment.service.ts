@@ -16,4 +16,8 @@ export class ScheduledappointmentService {
   createScheduledAppointment(scheduledappointment:Scheduledappointment): Observable<Scheduledappointment> {
     return this.http.post<Scheduledappointment>(this.apiHost + "scheduledapp/create", scheduledappointment, {headers: this.headers});
   }
+
+  scheduleAppointment(freeApointmentId: any, registeredUserId: any): Observable<Scheduledappointment> {
+    return this.http.post<Scheduledappointment>(this.apiHost + "scheduledapp/create/" + freeApointmentId + '/' + registeredUserId ,  {headers: this.headers});
+  }
 }

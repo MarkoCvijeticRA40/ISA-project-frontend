@@ -1,21 +1,5 @@
 <body>
     <form class="container">
-        <mat-form-field style="color: white;">
-          <input matInput placeholder="Name"  [formControl]="requiredNameControl"
-                 [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.name">
-          <mat-error *ngIf="requiredNameControl.hasError('required')">
-            Name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field><br>
-    
-        <mat-form-field style="color: white;">
-            <input matInput placeholder="Surname" [formControl]="requiredSurnameControl"
-                   [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.surname">
-            <mat-error *ngIf="requiredSurnameControl.hasError('required')">
-                Surname is <strong>required</strong>
-            </mat-error>
-          </mat-form-field><br>
-    
           <mat-form-field style="color: white;">
             <input matInput placeholder="Name of father" [formControl]="requiredNameOfFatherControl"
                    [errorStateMatcher]="matcher" [(ngModel)]="donorPoll.nameOfFather">

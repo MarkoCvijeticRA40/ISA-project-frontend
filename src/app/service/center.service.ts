@@ -53,4 +53,8 @@ export class CenterService {
     return this.http.get<Center[]>(this.apiHost + 'centers/grade/desc', {headers: this.headers});
   }
 
+  getAvailableCenters(dateString : String) : Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/available/' + dateString , { headers : this.headers});
+  }
+
 }

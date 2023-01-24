@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body style="background-color:gray;">
-   <h1>
-    Schedule appointment
-</h1>
 <div class="container">
     <div>
         <mat-form-field id="mat1">
@@ -36,12 +33,11 @@
         </mat-form-field>
     </div>
 
-    <button mat-stroked-button (click)="getByDate()">
+    <button mat-stroked-button id="button1"  (click)="GetAvailableCenters()">
         Submit
     </button>
 </div>
 <br>
-<div>
     <table id="table1">
        <tr>
             <th>Name:</th>
@@ -49,14 +45,15 @@
             <th>Average grade:</th>
        </tr>
 
-       <tr *ngFor="let freeapp of freeAppointmentsDataSource">
-        <td>{{freeapp.center.name}}</td>
-        <td>{{freeapp.center.address.city}}</td>
-        <td>{{freeapp.center.avgGrade}}</td>
-        <td><button (click)="createScheduledAppointment(freeapp)">Schedule</button></td>
+       <tr *ngFor="let center of centers">
+            <td>{{center.name}}</td>
+            <td>{{center.address.street }} {{ center.address.number }} <br/> {{ center.address.city }}, {{ center.address.state }} </td>
+            <td>{{center.avgGrade}}</td>
+            <td><button mat-stroked-button id="button2">
+                Schedule
+            </button></td>
        </tr>
     </table>
-</div>
 
 
 </body>

@@ -18,6 +18,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisteredUsersComponent } from '../pages/registered-users/registered-users.component';
+import { WorkingCalendarComponent } from './working-calendar/working-calendar.component';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
+
+
 
 const routes: Routes = [
   {
@@ -27,7 +32,7 @@ const routes: Routes = [
       { path: 'edit/admin/profile',component: EditProfileComponent},
       { path: 'admin/center/update', component: UpdateCenterComponent },
       { path: 'registeredUsers', component: RegisteredUsersComponent},
-      
+      { path: 'workingCalendar', component: WorkingCalendarComponent},      
     ]
   }
 ];
@@ -40,7 +45,9 @@ const routes: Routes = [
     EditProfileComponent,
     ShowProfileComponent,
     UpdateCenterComponent,
-    MedicalStaffComponent
+    MedicalStaffComponent,
+    WorkingCalendarComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -57,6 +64,8 @@ const routes: Routes = [
     MatListModule,
     RouterModule,
     RouterModule.forChild(routes),
-  ]
+    ScheduleModule, RecurrenceEditorModule,
+  ],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService]
 })
 export class MedicalStaffModule { }

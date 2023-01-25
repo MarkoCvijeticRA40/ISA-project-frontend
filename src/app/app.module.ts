@@ -12,13 +12,15 @@ import { TokenInterceptor } from "./interceptor/token-interceptor";
 import { RegisteredUserModule } from "./modules/registered-user/registered-user.module";
 import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module";
 import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
-
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent  ],
+    AppComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,11 +33,13 @@ import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
     RegisteredUserModule,
     MedicalStaffModule,
     SystemAdminModule,
+    ScheduleModule, RecurrenceEditorModule,
     
     
   ],
-  providers: [
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService,
     {
+      
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true

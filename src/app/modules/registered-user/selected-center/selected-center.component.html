@@ -1,4 +1,7 @@
 <div class="container">
+    <button mat-button (click)="sortByDateAsc()"> &#8593; </button> &nbsp; <button (click)="sortByDateDesc()" mat-button> &#8595; </button>
+</div>
+<div class="container">
     <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="time">
             <th mat-header-cell *matHeaderCellDef class="cell-center"> Time </th>

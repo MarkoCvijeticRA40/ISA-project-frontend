@@ -21,8 +21,6 @@ export class RegisteredUser {
     numOfPenalities: number = 0;
     userCategory: any = null;
     visitedCenters: any[] = [];
-    scheduledAppointments: any[] = [];
-    performedAppointments: any[] = [];
 
 
     public constructor(obj?: any) {
@@ -45,8 +43,6 @@ export class RegisteredUser {
             this.numOfPenalities = obj.numOfPenalities;
             this.userCategory = obj.userCategory;
             this.visitedCenters  = obj.visitedCenters;
-            this.scheduledAppointments = obj.scheduledAppointments;
-            this.performedAppointments = obj.performedAppointments;
         }
     }
 

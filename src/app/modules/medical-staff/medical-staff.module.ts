@@ -18,13 +18,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisteredUsersComponent } from '../pages/registered-users/registered-users.component';
+import { ChangePasswordStaffComponent } from './change-password-staff/change-password-staff.component';
+import { MatTable, MatTableModule } from '@angular/material/table';
+
 import { WorkingCalendarComponent } from './working-calendar/working-calendar.component';
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
 
 
-import { ChangePasswordStaffComponent } from './change-password-staff/change-password-staff.component';
-import { MatTable, MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -34,10 +35,13 @@ const routes: Routes = [
       { path: 'edit/admin/profile',component: EditProfileComponent},
       { path: 'admin/center/update', component: UpdateCenterComponent },
       { path: 'registeredUsers', component: RegisteredUsersComponent},
-      { path: 'workingCalendar', component: WorkingCalendarComponent},      
+      { path: 'workingCalendar', component: WorkingCalendarComponent}, 
       { path: 'change/password', component : ChangePasswordStaffComponent}  
     ]
+  }
 ];
+
+
 
 @NgModule({
   declarations: [
@@ -47,20 +51,28 @@ const routes: Routes = [
     UpdateCenterComponent,
     MedicalStaffComponent,
     WorkingCalendarComponent,
-    
     ChangePasswordStaffComponent
   ],
   imports: [
     CommonModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    FormsModule,
     MatOptionModule,
+    MatSelectModule,
+    MatButtonModule,
     MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
     MatListModule,
+    RouterModule,
     RouterModule.forChild(routes),
-    ScheduleModule, RecurrenceEditorModule,
     MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScheduleModule, 
+    RecurrenceEditorModule
   ],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService]
-
 })
 export class MedicalStaffModule { }

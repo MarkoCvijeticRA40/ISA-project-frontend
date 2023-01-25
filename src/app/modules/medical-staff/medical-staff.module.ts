@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateAvailableAppointmentComponent } from './create-available-appointment/create-available-appointment.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -23,6 +23,8 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
 
 
+import { ChangePasswordStaffComponent } from './change-password-staff/change-password-staff.component';
+import { MatTable, MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -33,11 +35,9 @@ const routes: Routes = [
       { path: 'admin/center/update', component: UpdateCenterComponent },
       { path: 'registeredUsers', component: RegisteredUsersComponent},
       { path: 'workingCalendar', component: WorkingCalendarComponent},      
+      { path: 'change/password', component : ChangePasswordStaffComponent}  
     ]
-  }
 ];
-
-
 
 @NgModule({
   declarations: [
@@ -48,24 +48,19 @@ const routes: Routes = [
     MedicalStaffComponent,
     WorkingCalendarComponent,
     
+    ChangePasswordStaffComponent
   ],
   imports: [
     CommonModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatInputModule,
-    FormsModule,
     MatOptionModule,
-    MatSelectModule,
-    MatButtonModule,
     MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
     MatListModule,
-    RouterModule,
     RouterModule.forChild(routes),
     ScheduleModule, RecurrenceEditorModule,
+    MatTableModule,
+    ReactiveFormsModule
   ],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService]
+
 })
 export class MedicalStaffModule { }

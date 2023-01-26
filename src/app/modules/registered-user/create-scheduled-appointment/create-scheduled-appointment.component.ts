@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Center } from 'src/app/model/center.model';
 import { DonorPoll } from 'src/app/model/donor-poll.model';
 import { Freeapointment } from 'src/app/model/freeapointment.model';
-import { MedicalStaff } from 'src/app/model/medical-staff.model';
 import { RegisteredUser } from 'src/app/model/registered-user.model';
 import { Scheduledappointment } from 'src/app/model/scheduledappointment.model';
 import { CenterService } from 'src/app/service/center.service';
-import { FreeappointmentService } from 'src/app/service/freeappointment.service';
-import { MedicalstaffService } from 'src/app/service/medicalstaff.service';
+import { DonorPollService } from 'src/app/service/donor-poll.service';
+import { PerformedAppointmentService } from 'src/app/service/performed-appointment.service';
 import { ScheduledappointmentService } from 'src/app/service/scheduledappointment.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -19,22 +19,19 @@ import { UserService } from 'src/app/service/user.service';
 export class CreateScheduledAppointmentComponent implements OnInit {
 
   startDate : Date = new Date();
-
   dateString : any;
-
+  ascOrDesc: any;
   public centers: Center[] = [];
-
+  public emptyList : Center[] = [];
   public freeAppointment : Freeapointment = new Freeapointment();
-
   public scheduledAppointment : Scheduledappointment = new Scheduledappointment();
-
   public user : RegisteredUser = new RegisteredUser();
-
   public donorPoll : DonorPoll = new DonorPoll();
-
+  public isDonorPollFilled: boolean = false;
+  public hasDonatedBloodInLastSixMonths: boolean = false;
   hour : number = 8;
-
   minute : number = 0;
+  centerId : number = 0;
 
   hours = [
     {value: 8,  viewValue: '08'},
@@ -61,12 +58,11 @@ export class CreateScheduledAppointmentComponent implements OnInit {
     {value: 60,  viewValue: '60'},
   ];
 
-  constructor(private centerService : CenterService,private userService : UserService) { }
-
+  constructor(private router : Router,private centerService : CenterService,private scheduledAppointmentService : ScheduledappointmentService,private userService : UserService,private donorPollService : DonorPollService,private performedAppointmentService : PerformedAppointmentService) { }
 
   public GetAvailableCenters() {
     
-    this.FormatDate();
+    this.ConvertDateToString();
 
     if(new Date().getTime() - this.freeAppointment.date.getTime() > 0) 
     {
@@ -74,13 +70,13 @@ export class CreateScheduledAppointmentComponent implements OnInit {
     }
     else 
     { 
-      this.centerService.getAvailableCenters(this.dateString).subscribe(res => {
+      this.centerService.getAvailableCenters(this.dateString,this.ascOrDesc).subscribe(res => {
         this.centers = res;  
       })
     }
   }
 
-  public FormatDate() {
+  public ConvertDateToString() {
     this.freeAppointment.date.setHours(1);
     this.freeAppointment.date.setSeconds(0);
     this.freeAppointment.date.setMilliseconds(0);
@@ -91,9 +87,41 @@ export class CreateScheduledAppointmentComponent implements OnInit {
     this.dateString = this.dateString.replace("Z","");
   }
 
+  public specificSchedule(center : Center) {
+    this.centerId = center.id;
+    this.scheduledAppointmentService.specificSchedule(this.dateString, this.userService.currentUser.id,this.centerId).subscribe(res => {
+      alert('Appointment is scheduled!');
+    })
+    this.centers = this.emptyList;
+    this.ngOnInit();
+  }
+
+  sortByAvgGradeAsc() {
+    this.ascOrDesc = "asc";
+    this.centerService.getAvailableCenters(this.dateString,this.ascOrDesc).subscribe(res => {
+      this.centers = res;  
+    })
+  }
+
+  sortByAvgGradeDesc() {
+    this.ascOrDesc = "desc";
+    this.centerService.getAvailableCenters(this.dateString,this.ascOrDesc).subscribe(res => {
+      this.centers = res;  
+    })
+  }
+
   ngOnInit(): void {
     this.userService.find(this.userService.currentUser.email).subscribe(res => {
       this.user = res; 
     });
-  }
+
+    this.donorPollService.isPollFilled(this.userService.currentUser.id).subscribe(res => {
+      this.isDonorPollFilled = res;
+        console.log('is poll filled ' + this.isDonorPollFilled);
+    });
+    this.performedAppointmentService.hasDonatedBloodInLastSixMonths(this.userService.currentUser.id).subscribe(res => {  
+      this.hasDonatedBloodInLastSixMonths = res;
+        console.log("has donated in last six months: " + this.hasDonatedBloodInLastSixMonths);
+    }); 
+  }  
 }

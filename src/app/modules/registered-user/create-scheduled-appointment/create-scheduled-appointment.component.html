@@ -38,6 +38,7 @@
     </button>
 </div>
 <br>
+<button id="sortButton" class="gradeBtn" (click)="sortByAvgGradeAsc()">&#8593;</button> <button (click)="sortByAvgGradeDesc()">&#8595;</button>
     <table id="table1">
        <tr>
             <th>Name:</th>
@@ -49,7 +50,7 @@
             <td>{{center.name}}</td>
             <td>{{center.address.street }} {{ center.address.number }} <br/> {{ center.address.city }}, {{ center.address.state }} </td>
             <td>{{center.avgGrade}}</td>
-            <td><button mat-stroked-button id="button2">
+            <td><button mat-stroked-button id="button2" (click)="specificSchedule(center)">
                 Schedule
             </button></td>
        </tr>

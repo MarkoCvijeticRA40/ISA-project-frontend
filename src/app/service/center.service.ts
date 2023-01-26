@@ -53,8 +53,16 @@ export class CenterService {
     return this.http.get<Center[]>(this.apiHost + 'centers/grade/desc', {headers: this.headers});
   }
 
-  getAvailableCenters(dateString : String) : Observable<Center[]> {
-    return this.http.get<Center[]>(this.apiHost + 'centers/available/' + dateString , { headers : this.headers});
+  getAvailableCenters(dateString : String, ascOrDesc : String) : Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/available/' + dateString + '/' + ascOrDesc , { headers : this.headers});
+  }
+
+  sortListCenterByAvgGradeAsc(centers : Center[]): Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/grade/list/center/asc/' + centers, {headers: this.headers});
+  }
+
+  sortListCenterByAvgGradeDesc(centers : Center[]): Observable<Center[]> {
+    return this.http.get<Center[]>(this.apiHost + 'centers/grade/list/center/desc/' + centers, {headers: this.headers});
   }
 
 }

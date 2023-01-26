@@ -13,7 +13,7 @@ import { RegisteredUserModule } from "./modules/registered-user/registered-user.
 import { MedicalStaffModule } from "./modules/medical-staff/medical-staff.module";
 import { SystemAdminModule } from "./modules/system-admin/system-admin.module";
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
-import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, WorkWeekService, MonthService, YearService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
 
 
 
@@ -38,7 +38,7 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, 
    
     
   ],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService,
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, YearService,
     {
       
       provide: HTTP_INTERCEPTORS,

@@ -37,10 +37,9 @@ export class ChangePasswordComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.userService.findSystemAdministrator(this.userService.currentUser.id).subscribe(res => {
+        this.userService.findSystemAdministrator(this.userService.currentUser.id).subscribe(res => {
         this.user = res;
-      })
+      
     });
     
   }

@@ -32,10 +32,10 @@ export class SelectedCenterComponent implements OnInit {
       console.log("has donated in last six months: " + this.hasDonatedBloodInLastSixMonths);
     this.activatedRoute.paramMap.subscribe(params=>{   
       this.centerId=Number(params.get('centerId'));
-      this.freeAppointmentService.getByCenterid(this.centerId).subscribe(res => {
+      this.freeAppointmentService.get(this.centerId, this.userService.currentUser.id).subscribe(res => {
         this.freeAppointments = res;
         for (let freeapointment of this.freeAppointments) {
-          freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]), Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
+          freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]) - 1, Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
         }
         this.dataSource.data = this.freeAppointments;
       })
@@ -50,6 +50,26 @@ export class SelectedCenterComponent implements OnInit {
       this.router.navigate(['/registered-user/centers']);
     })
 
+  }
+
+  public sortByDateAsc() {
+    this.freeAppointmentService.getByDateAsc().subscribe(res => {
+      this.freeAppointments = res;
+      for (let freeapointment of this.freeAppointments) {
+        freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]), Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
+      }
+      this.dataSource.data = this.freeAppointments;
+    })
+  }
+
+  public sortByDateDesc() {
+    this.freeAppointmentService.getByDateDesc().subscribe(res => {
+      this.freeAppointments = res;
+      for (let freeapointment of this.freeAppointments) {
+        freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]), Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
+      }
+      this.dataSource.data = this.freeAppointments;
+    })
   }
 
 }

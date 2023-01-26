@@ -20,4 +20,9 @@ export class MedicalstaffService {
     return this.http.put<any>(this.apiHost + 'medicalstaff/saveChanges' , medicalStaff , { headers : this.headers });          
   }
 
+  
+  registerCenterAdministrator(staff: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'medicalstaff/registerStaff', staff, {headers: this.headers});
+  }
 }
+

@@ -27,7 +27,14 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/registered-user/user/profile']);
         }
         else if (this.currentUser.role.name === 'SYSTEM_ADMINISTRATOR') {
-          this.router.navigate(['/system-admin/registeredUsers']);
+          this.userService.findSystemAdministrator(this.currentUser.id).subscribe(res => {
+                  if(res.isFirstLogin){
+                    this.router.navigate(['/system-admin/change/saPassword']);
+
+                  }else{
+                  this.router.navigate(['/system-admin/registeredUsers']);
+                  }
+           })
         }
         else if (this.currentUser.role.name === 'MEDICAL_STAFF') {
           this.router.navigate(['/medical-staff/admin/profile']);

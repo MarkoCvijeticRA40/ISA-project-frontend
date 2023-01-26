@@ -25,6 +25,18 @@ export class FreeappointmentService {
     return this.http.get<Freeapointment[]>(this.apiHost + "freeapp/center/" + centerId, {headers: this.headers});
   }
 
+  getByDateAsc() : Observable<Freeapointment[]> {
+    return this.http.get<Freeapointment[]>(this.apiHost + "freeapp/getByDateAsc", {headers: this.headers});
+  }
+
+  getByDateDesc() : Observable<Freeapointment[]> {
+    return this.http.get<Freeapointment[]>(this.apiHost + "freeapp/getByDateDesc", {headers: this.headers});
+  }
+
+  get(centerId: number, registeredUserId: number) : Observable<Freeapointment[]> {
+    return this.http.get<Freeapointment[]>(this.apiHost + "freeapp/center/" + centerId + "/" + registeredUserId, {headers: this.headers});
+  }
+
 
 
 }

@@ -17,6 +17,28 @@ export class ScheduledAppointmentsComponent implements OnInit {
   constructor(private userService: UserService, private scheduledAppointmentService: ScheduledappointmentService) { }
 
   ngOnInit(): void {
+    this.loadScheduledAppointments();
+  }
+
+  public cancelAppointment(scheduledApppointmentId: any) {
+    this.scheduledAppointmentService.cancelAppointment(scheduledApppointmentId, this.userService.currentUser.id).subscribe(res => {
+      alert('Appointment is canceled!');
+      this.loadScheduledAppointments();
+    },
+    error => {
+      alert('You can not cancel appointment 24 hours(or less) before the appointment');
+    });
+    
+  }
+
+  public isDisabled(date: Date) {
+    let d = date;
+    d.setDate(d.getDate() - 1);
+    return d.getTime() <= Date.now();  
+  }
+
+
+  loadScheduledAppointments() {
     this.scheduledAppointmentService.get(this.userService.currentUser.id).subscribe(res => {
       this.scheduledAppointments = res;
       for (let scheduledAppointment of this.scheduledAppointments) {
@@ -26,5 +48,7 @@ export class ScheduledAppointmentsComponent implements OnInit {
       this.dataSource.data = this.scheduledAppointments;
     })
   }
+
+
 
 }

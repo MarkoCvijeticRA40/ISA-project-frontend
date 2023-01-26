@@ -24,4 +24,8 @@ export class ScheduledappointmentService {
   get(registeredUserId: any): Observable<Scheduledappointment[]> {
     return this.http.get<Scheduledappointment[]>(this.apiHost + "scheduledapp/" + registeredUserId ,  {headers: this.headers});
   }
+
+  cancelAppointment(scheduledAppointmentId: any, registeredUserId: any): Observable<Scheduledappointment> {
+    return this.http.post<Scheduledappointment>(this.apiHost + "scheduledapp/cancelAppointment/" + scheduledAppointmentId + "/" + registeredUserId ,  {headers: this.headers});
+  }
 }

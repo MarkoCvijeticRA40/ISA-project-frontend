@@ -23,6 +23,7 @@ import { CentersComponent } from './centers/centers.component';
 import { SelectedCenterComponent } from './selected-center/selected-center.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { HomeComponent } from '../pages/home/home.component';
+import { ScheduledAppointmentsComponent } from './scheduled-appointments/scheduled-appointments.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
       { path: 'centers', component: CentersComponent },
       { path: 'center/:centerId', component:SelectedCenterComponent},
       { path: 'change/password', component : PasswordChangeComponent},
-      { path: 'home' , component: HomeComponent}  
+      { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent}
     ]
   }
 ];
@@ -50,6 +51,7 @@ const routes: Routes = [
     CentersComponent,
     SelectedCenterComponent,
     PasswordChangeComponent,
+    ScheduledAppointmentsComponent,
   ],
   exports: [RouterModule],
   imports: [

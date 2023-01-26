@@ -32,4 +32,8 @@ export class ScheduledappointmentService {
 
 
 
+
+  get(registeredUserId: any): Observable<Scheduledappointment[]> {
+    return this.http.get<Scheduledappointment[]>(this.apiHost + "scheduledapp/" + registeredUserId ,  {headers: this.headers});
+  }
 }

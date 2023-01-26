@@ -88,12 +88,21 @@ export class CreateScheduledAppointmentComponent implements OnInit {
   }
 
   public specificSchedule(center : Center) {
+    if(this.isDonorPollFilled == false) {
+      alert("You must fill out a donor poll!");
+    }
+    else if(this.hasDonatedBloodInLastSixMonths != false) {
+      alert("You already donate blood in last six months!")
+    }
+    else 
+    { 
     this.centerId = center.id;
     this.scheduledAppointmentService.specificSchedule(this.dateString, this.userService.currentUser.id,this.centerId).subscribe(res => {
       alert('Appointment is scheduled!');
     })
     this.centers = this.emptyList;
     this.ngOnInit();
+    }
   }
 
   sortByAvgGradeAsc() {

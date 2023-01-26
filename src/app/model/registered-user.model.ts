@@ -1,5 +1,4 @@
 import { Address } from "./address.model";
-import { DonorPoll } from "./donor-poll.model";
 import { Gender } from "./gender.model";
 
 export class RegisteredUser {
@@ -21,7 +20,6 @@ export class RegisteredUser {
     numOfPenalities: number = 0;
     userCategory: any = null;
     visitedCenters: any[] = [];
-
 
     public constructor(obj?: any) {
         if (obj) {

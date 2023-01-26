@@ -22,9 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CentersComponent } from './centers/centers.component';
 import { SelectedCenterComponent } from './selected-center/selected-center.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
-import { HomeComponent } from '../pages/home/home.component';
 import { ScheduledAppointmentsComponent } from './scheduled-appointments/scheduled-appointments.component';
-
 
 const routes: Routes = [
   {

@@ -42,7 +42,7 @@ export class SelectedCenterComponent implements OnInit {
   })
 })
 })
-  }
+}
 
   public schedule(freeApointmentId: any) {
     this.scheduledAppointmentService.scheduleAppointment(freeApointmentId, this.userService.currentUser.id).subscribe(res => {

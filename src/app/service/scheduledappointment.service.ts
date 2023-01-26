@@ -20,18 +20,22 @@ export class ScheduledappointmentService {
   scheduleAppointment(freeApointmentId: any, registeredUserId: any): Observable<Scheduledappointment> {
     return this.http.post<Scheduledappointment>(this.apiHost + "scheduledapp/create/" + freeApointmentId + '/' + registeredUserId ,  {headers: this.headers});
   }
-  getScheduleAppointment(): Observable<Scheduledappointment[]> {
-      return this.http.get<Scheduledappointment[]>(this.apiHost + 'scheduledapp', {headers: this.headers});
+
+  specificSchedule(dateString : any,registeredUserId : any, centerId : any) {
+    return this.http.post<Scheduledappointment>(this.apiHost + "scheduledapp/create/" + dateString + '/' + registeredUserId + '/' + centerId ,  {headers: this.headers});
   }
 
+  getByUserId(id : number){
+    return this.http.get<any>(this.apiHost + "scheduleapp/get/by/user/" + id ,{ headers : this.headers});
+  }
 
-  
+  getScheduleAppointment(): Observable<Scheduledappointment[]> {
+    return this.http.get<Scheduledappointment[]>(this.apiHost + 'scheduledapp', {headers: this.headers});
+  }
+
   getScheduleAppointmentByCenterId(id: number): Observable<Scheduledappointment[]> {
     return this.http.get<Scheduledappointment[]>(this.apiHost + 'scheduledapp/center/'+ id, {headers: this.headers});
-}
-
-
-
+  }
 
   get(registeredUserId: any): Observable<Scheduledappointment[]> {
     return this.http.get<Scheduledappointment[]>(this.apiHost + "scheduledapp/" + registeredUserId ,  {headers: this.headers});
@@ -40,4 +44,5 @@ export class ScheduledappointmentService {
   cancelAppointment(scheduledAppointmentId: any, registeredUserId: any): Observable<Scheduledappointment> {
     return this.http.post<Scheduledappointment>(this.apiHost + "scheduledapp/cancelAppointment/" + scheduledAppointmentId + "/" + registeredUserId ,  {headers: this.headers});
   }
+
 }

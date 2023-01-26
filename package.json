@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@syncfusion/ej2-angular-schedule": "^20.4.44",
+    "@syncfusion/ej2-material-theme": "~20.4.44",
     "angular": "^1.8.3",
     "force": "^0.0.3",
     "ng-angular-popup": "^0.2.0",

@@ -46,7 +46,7 @@ export class UserService {
 
   login(data: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'auth/login', data, {headers: this.headers})
-     .pipe(map((res) => {
+    .pipe(map((res) => {
       console.log(res);
       console.log('Login success');
       this.access_token = res.accessToken;

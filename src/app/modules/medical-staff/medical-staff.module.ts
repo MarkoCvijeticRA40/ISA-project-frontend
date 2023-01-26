@@ -21,6 +21,12 @@ import { RegisteredUsersComponent } from '../pages/registered-users/registered-u
 import { ChangePasswordStaffComponent } from './change-password-staff/change-password-staff.component';
 import { MatTable, MatTableModule } from '@angular/material/table';
 
+import { WorkingCalendarComponent } from './working-calendar/working-calendar.component';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View } from '@syncfusion/ej2-angular-schedule';
+
+
+
 const routes: Routes = [
   {
     path: '', component: MedicalStaffComponent, children: [
@@ -29,6 +35,7 @@ const routes: Routes = [
       { path: 'edit/admin/profile',component: EditProfileComponent},
       { path: 'admin/center/update', component: UpdateCenterComponent },
       { path: 'registeredUsers', component: RegisteredUsersComponent},
+      { path: 'workingCalendar', component: WorkingCalendarComponent}, 
       { path: 'change/password', component : ChangePasswordStaffComponent}  
     ]
   }
@@ -43,6 +50,7 @@ const routes: Routes = [
     ShowProfileComponent,
     UpdateCenterComponent,
     MedicalStaffComponent,
+    WorkingCalendarComponent,
     ChangePasswordStaffComponent
   ],
   imports: [
@@ -61,7 +69,10 @@ const routes: Routes = [
     RouterModule,
     RouterModule.forChild(routes),
     MatTableModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    ScheduleModule, 
+    RecurrenceEditorModule
+  ],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService]
 })
 export class MedicalStaffModule { }

@@ -8,7 +8,8 @@ export class Scheduledappointment {
     bloodDonorInfo : any;
     registeredUser: any;
 
-    public constructor(obj?: any) {
+    public constructor(obj?: Scheduledappointment) {
+        alert(obj?.date)
         if (obj) {
             this.id = obj.id;
             this.date = obj.date;

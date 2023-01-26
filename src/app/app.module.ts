@@ -33,8 +33,9 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, 
     RegisteredUserModule,
     MedicalStaffModule,
     SystemAdminModule,
-    ScheduleModule, RecurrenceEditorModule,
-    
+    ScheduleModule, 
+    RecurrenceEditorModule,
+   
     
   ],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService,

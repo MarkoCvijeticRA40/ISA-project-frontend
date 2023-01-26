@@ -53,20 +53,20 @@ export class SelectedCenterComponent implements OnInit {
   }
 
   public sortByDateAsc() {
-    this.freeAppointmentService.getByDateAsc().subscribe(res => {
+    this.freeAppointmentService.getByDateAsc(this.centerId, this.userService.currentUser.id).subscribe(res => {
       this.freeAppointments = res;
       for (let freeapointment of this.freeAppointments) {
-        freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]), Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
+        freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]) - 1, Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
       }
       this.dataSource.data = this.freeAppointments;
     })
   }
 
   public sortByDateDesc() {
-    this.freeAppointmentService.getByDateDesc().subscribe(res => {
+    this.freeAppointmentService.getByDateDesc(this.centerId, this.userService.currentUser.id).subscribe(res => {
       this.freeAppointments = res;
       for (let freeapointment of this.freeAppointments) {
-        freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]), Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
+        freeapointment.date = new Date(Number(freeapointment.date.toString().split(',')[0]), Number(freeapointment.date.toString().split(',')[1]) - 1, Number(freeapointment.date.toString().split(',')[2]), Number(freeapointment.date.toString().split(',')[3]), Number(freeapointment.date.toString().split(',')[4]));
       }
       this.dataSource.data = this.freeAppointments;
     })

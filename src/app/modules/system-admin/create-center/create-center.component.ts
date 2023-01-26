@@ -6,7 +6,8 @@ import { Center } from 'src/app/model/center.model';
 import { Gender } from 'src/app/model/gender.model';
 import { MedicalStaff } from 'src/app/model/medical-staff.model';
 import { CenterService } from 'src/app/service/center.service';
-import { UserService } from 'src/app/service/user.service';
+import { MedicalstaffService} from 'src/app/service/medicalstaff.service';
+import { UserService} from 'src/app/service/user.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -62,8 +63,8 @@ export class CreateCenterComponent implements OnInit {
 
   ];
 
-  constructor(private centerService: CenterService,private userService: UserService, private router: Router) { }
-
+  constructor(private userService: UserService,private centerService: CenterService,private medicalstaffService: MedicalstaffService, private router: Router) { }
+  
 
   genders = [
     { value: Gender.Male, viewValue: "Male" },
@@ -76,6 +77,7 @@ export class CreateCenterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
 
   }
   
@@ -89,9 +91,10 @@ export class CreateCenterComponent implements OnInit {
 
        if(this.isWorkTimeValid()){
       
-        this.userService.registerCenterAdministrator(this.medicalStaff).subscribe(res => {
-        this.userService.find(this.medicalStaff.email).subscribe(res => {
+        this.medicalstaffService.registerCenterAdministrator(this.medicalStaff).subscribe(res => {
+        this.medicalstaffService.find(this.medicalStaff.email).subscribe(res => {
         this.center.medicalStaff.push(res);
+        
 
         this.centerService.registerCenter(this.center).subscribe(res => {
     

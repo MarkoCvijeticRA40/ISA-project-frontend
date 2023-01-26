@@ -42,7 +42,7 @@ export class WorkingCalendarComponent implements OnInit {
             
             this.scheduledappointmentDataSource.push(new ScheduldedAppointmentCalendar(s));
                      })
-                     let l= 'lazar'
+                    
                      this.eventObject  = {
                       dataSource:this.scheduledappointmentDataSource, 
                       allowAdding:false, 
